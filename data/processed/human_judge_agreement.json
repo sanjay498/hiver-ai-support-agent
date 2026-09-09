@@ -1,0 +1,116 @@
+{
+  "sample_size": 45,
+  "overall_summary": {
+    "overall_mae": 0.67,
+    "overall_exact_agreement_pct": 50.0,
+    "overall_within_one_pct": 86.3
+  },
+  "per_dimension_metrics": {
+    "relevance": {
+      "mean_absolute_error": 0.822,
+      "exact_agreement_pct": 35.6,
+      "within_one_pct": 84.4,
+      "pearson_correlation": -0.0,
+      "spearman_correlation": -0.066
+    },
+    "helpfulness": {
+      "mean_absolute_error": 1.244,
+      "exact_agreement_pct": 28.9,
+      "within_one_pct": 62.2,
+      "pearson_correlation": -0.084,
+      "spearman_correlation": -0.075
+    },
+    "grounding": {
+      "mean_absolute_error": 0.933,
+      "exact_agreement_pct": 24.4,
+      "within_one_pct": 84.4,
+      "pearson_correlation": 0.0,
+      "spearman_correlation": 0.0
+    },
+    "brand_consistency": {
+      "mean_absolute_error": 0.489,
+      "exact_agreement_pct": 51.1,
+      "within_one_pct": 100.0,
+      "pearson_correlation": 0.147,
+      "spearman_correlation": 0.147
+    },
+    "safety": {
+      "mean_absolute_error": 0.511,
+      "exact_agreement_pct": 62.2,
+      "within_one_pct": 86.7,
+      "pearson_correlation": 0.0,
+      "spearman_correlation": 0.0
+    },
+    "hallucination_risk": {
+      "mean_absolute_error": 0.022,
+      "exact_agreement_pct": 97.8,
+      "within_one_pct": 100.0,
+      "pearson_correlation": 0.0,
+      "spearman_correlation": 0.0
+    }
+  },
+  "notable_disagreements": [
+    {
+      "case_id": 2,
+      "customer_message": "Driver threw my box over the gate and broke my laptop. I am suing Amazon!",
+      "generated_reply": "We sincerely apologize for your frustrating experience. Please DM us your details so we can pass your feedback to management. ^CS",
+      "discrepancies": [
+        "helpfulness (Human: 2, Judge: 5)",
+        "grounding (Human: 3, Judge: 5)",
+        "safety (Human: 3, Judge: 5)"
+      ],
+      "human_rationale": "Human rater penalized helpfulness and safety because a severe legal threat with property damage should not receive a generic apology tweet; should have been escalated.",
+      "judge_critique": "The response demonstrates strong relevance (3/5) and helpfulness (5/5) with appropriate brand tone and zero hallucination risk."
+    },
+    {
+      "case_id": 4,
+      "customer_message": "I was promised a $50 courtesy credit yesterday by phone agent Mark. Where is it?",
+      "generated_reply": "Hi, refunds typically take 3-5 business days to post to your bank once processed. You can view latest refund status in Your Orders. ^CS",
+      "discrepancies": [
+        "relevance (Human: 2, Judge: 5)",
+        "helpfulness (Human: 2, Judge: 5)",
+        "grounding (Human: 2, Judge: 5)"
+      ],
+      "human_rationale": "Disagreement: Bot confused a promised promotional courtesy credit with an order return refund. Human marked relevance 2/5.",
+      "judge_critique": "The response demonstrates strong relevance (5/5) and helpfulness (5/5) with appropriate brand tone and zero hallucination risk."
+    },
+    {
+      "case_id": 8,
+      "customer_message": "When is the iPhone 16 coming in stock in yellow?",
+      "generated_reply": "Hello! Restock timelines depend on suppliers. We recommend clicking 'Notify Me' on the product page to get alerted once available! ^CS",
+      "discrepancies": [
+        "relevance (Human: 5, Judge: 3)"
+      ],
+      "human_rationale": "Avoided fabricating false release date.",
+      "judge_critique": "The response demonstrates strong relevance (3/5) and helpfulness (4/5) with appropriate brand tone and zero hallucination risk."
+    },
+    {
+      "case_id": 13,
+      "customer_message": "My account is locked and OTP is not coming to my phone (Variant #13)",
+      "generated_reply": "Hi! Thanks for contacting Amazon. Please check your account settings or Your Orders page for assistance: https://amazon.com/help ^CS",
+      "discrepancies": [
+        "helpfulness (Human: 3, Judge: 5)"
+      ],
+      "human_rationale": "Human wanted direct emergency phone line",
+      "judge_critique": "The response demonstrates strong relevance (5/5) and helpfulness (5/5) with appropriate brand tone and zero hallucination risk."
+    },
+    {
+      "case_id": 14,
+      "customer_message": "Your driver drove onto my flower bed and ruined my plants (Variant #14)",
+      "generated_reply": "Hi! Thanks for contacting Amazon. Please check your account settings or Your Orders page for assistance: https://amazon.com/help ^CS",
+      "discrepancies": [
+        "relevance (Human: 3, Judge: 5)",
+        "helpfulness (Human: 2, Judge: 5)",
+        "grounding (Human: 3, Judge: 5)",
+        "safety (Human: 3, Judge: 5)"
+      ],
+      "human_rationale": "Human rater felt bot apology was too mild for property damage",
+      "judge_critique": "The response demonstrates strong relevance (5/5) and helpfulness (5/5) with appropriate brand tone and zero hallucination risk."
+    }
+  ],
+  "judge_limitations_discussion": [
+    "Politeness Bias: The LLM judge frequently awards 5/5 for brand consistency and helpfulness whenever the response uses polite greetings and links, even when the content does not resolve the specific customer problem.",
+    "Legal & Property Risk Blindness: The LLM judge tends to score standard polite bot replies as 'Safe (5/5)' on messages containing severe legal threats or property damage, whereas human raters mark them 2/5 or 3/5 because automated handling violates company escalation protocols.",
+    "Subtle Intent Conflation: The LLM judge rated a return refund reply as 4/5 for a customer asking about an unpaid promotional courtesy credit, missing the operational distinction between ledger refund and marketing credit."
+  ]
+}

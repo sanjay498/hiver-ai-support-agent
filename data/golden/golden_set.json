@@ -1,0 +1,2772 @@
+[
+  {
+    "id": 1,
+    "conversation_id": "gold_curated_1",
+    "customer_message": "Where is my order? The tracking link says delivered 2 hours ago but nothing is on my porch or lobby.",
+    "context": "Ordered 3 days ago with Prime Two-Day Shipping.",
+    "gold_intent": "delivery_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge the delivered status discrepancy with empathy",
+      "Suggest checking with neighbors, household members, or safe drop locations",
+      "State carrier 24-36 hour delivery window before declaring lost",
+      "Do not fabricate specific tracking numbers or courier name"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 2,
+    "conversation_id": "gold_curated_2",
+    "customer_message": "Package #114-9872134-5544321 shows 'out for delivery' for the past 4 days. The courier told me it is lost in transit.",
+    "context": "Customer reached out to carrier directly.",
+    "gold_intent": "delivery_status",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge confirmed carrier loss",
+      "Direct customer to human support for replacement dispatch or refund authorization",
+      "Do not promise immediate refund without account trace"
+    ],
+    "escalation_reason": "Confirmed lost shipment requiring replacement reorder or account refund trace."
+  },
+  {
+    "id": 3,
+    "conversation_id": "gold_curated_3",
+    "customer_message": "Can someone tell me when order #203-1283748 will ship? Ordered it this morning.",
+    "context": null,
+    "gold_intent": "delivery_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Explain dispatch timelines",
+      "Direct to 'Your Orders' page to view real-time estimated dispatch",
+      "Do not guess shipping date"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 4,
+    "conversation_id": "gold_curated_4",
+    "customer_message": "Driver marked my parcel delivered and signed by 'Front Door', but I live in a gated high-rise apartment and no one entered.",
+    "context": "Customer waited at lobby.",
+    "gold_intent": "delivery_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge incorrect signature location",
+      "Advise checking building reception/mailroom",
+      "Offer direct support escalation if not located within 24 hours"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 5,
+    "conversation_id": "gold_curated_5",
+    "customer_message": "Where is my refund for return #402-9988221? UPS tracking shows you received the return box 8 days ago.",
+    "context": "Item returned over a week ago.",
+    "gold_intent": "refund_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Explain standard return inspection and bank processing timeline (5-7 business days)",
+      "Advise checking 'Your Orders' -> 'View Return/Refund Status'",
+      "Provide timeframe for bank posting"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 6,
+    "conversation_id": "gold_curated_6",
+    "customer_message": "I was promised a full refund of $340 over two weeks ago by phone support. Still haven't received a penny in my account.",
+    "context": "Over 14 days elapsed since promise.",
+    "gold_intent": "refund_status",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge high value and significant delay beyond normal SLA",
+      "Escalate to billing/accounts specialist for manual ledger audit"
+    ],
+    "escalation_reason": "Refund overdue beyond maximum 14-day SLA, high financial impact requiring human ledger audit."
+  },
+  {
+    "id": 7,
+    "conversation_id": "gold_curated_7",
+    "customer_message": "Will my refund go back to my original credit card or as Amazon gift card balance?",
+    "context": null,
+    "gold_intent": "refund_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Clarify that refunds by default return to the original payment method unless gift balance was selected",
+      "State typical bank processing times (3-5 business days vs instantaneous for gift balance)"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 8,
+    "conversation_id": "gold_curated_8",
+    "customer_message": "How do I return a pair of shoes that don't fit? Do I need to print a label or can I drop it off at Whole Foods / UPS?",
+    "context": null,
+    "gold_intent": "return_exchange",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Explain QR-code label-free return options at UPS Store / Whole Foods / Kohl's",
+      "Direct customer to 'Your Orders' -> 'Return or Replace Items'",
+      "Highlight 30-day return window"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 9,
+    "conversation_id": "gold_curated_9",
+    "customer_message": "The system won't let me return this mattress because it says 'non-returnable hygienic item', but it arrived defective.",
+    "context": "Mattress arrived with tears.",
+    "gold_intent": "return_exchange",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge special hygiene category restriction",
+      "Route to human customer service for policy exception or refund under A-to-z guarantee"
+    ],
+    "escalation_reason": "Policy exception required for hazmat/hygiene non-returnable classification."
+  },
+  {
+    "id": 10,
+    "conversation_id": "gold_curated_10",
+    "customer_message": "I was sent the wrong color jacket (ordered navy, received bright red). Can I exchange it directly?",
+    "context": null,
+    "gold_intent": "return_exchange",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Confirm that replacement for incorrect item can be initiated via 'Return or Replace Items'",
+      "Explain that replacement ships immediately once return scan is registered"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 11,
+    "conversation_id": "gold_curated_11",
+    "customer_message": "I placed an order 10 minutes ago by mistake. How can I cancel it before it ships?",
+    "context": "Order placed recently.",
+    "gold_intent": "cancellation_request",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Guide customer immediately to 'Your Orders' -> 'Cancel Items'",
+      "Explain that cancellation is immediate if the order has not entered shipping process"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 12,
+    "conversation_id": "gold_curated_12",
+    "customer_message": "Cancel order #112-8877665 NOW. The website says 'Shipping Now' and won't let me hit cancel.",
+    "context": "Order entered shipping stage.",
+    "gold_intent": "cancellation_request",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Explain that orders in 'Shipping Now' status cannot be cancelled digitally",
+      "Advise on refusal of delivery upon courier arrival or free return upon receipt",
+      "Offer agent handoff to attempt warehouse intercept if feasible"
+    ],
+    "escalation_reason": "Automated cancellation window closed; requires warehouse dispatch intercept or return-to-sender instructions."
+  },
+  {
+    "id": 13,
+    "conversation_id": "gold_curated_13",
+    "customer_message": "My package arrived completely crushed and the glass coffee jar inside shattered all over everything.",
+    "context": "Severe damage, broken glass.",
+    "gold_intent": "damaged_defective_item",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Express genuine regret for the damaged shipment",
+      "Advise customer safety (do not handle broken glass)",
+      "Instruct to request replacement/refund through Returns Center without needing to mail back broken glass"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 14,
+    "conversation_id": "gold_curated_14",
+    "customer_message": "The battery on the drone I bought from Amazon caught fire while charging and scorched my wooden desk.",
+    "context": "Safety incident with property scorch.",
+    "gold_intent": "damaged_defective_item",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Prioritize safety and express serious concern",
+      "Immediately escalate to Product Safety & Incident Team",
+      "Do not make legal admissions or financial settlement offers"
+    ],
+    "escalation_reason": "High-severity safety incident and property damage involving electrical fire."
+  },
+  {
+    "id": 15,
+    "conversation_id": "gold_curated_15",
+    "customer_message": "I see a charge of $139 for Amazon Prime on my bank statement, but I never signed up for Prime!",
+    "context": "Unauthorized charge.",
+    "gold_intent": "billing_overcharge",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Treat unauthorized fee dispute with urgency",
+      "Direct to human representative to verify account credentials and initiate Prime refund",
+      "Explain that unused Prime memberships are fully eligible for refund"
+    ],
+    "escalation_reason": "Disputed subscription charge requiring account verification and refund authorization."
+  },
+  {
+    "id": 16,
+    "conversation_id": "gold_curated_16",
+    "customer_message": "My card was charged three times for order #701-4433221. Please refund the duplicate $54 charges.",
+    "context": "Duplicate pending charges.",
+    "gold_intent": "billing_overcharge",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Explain authorization holds vs settled charges (pending authorizations drop off automatically)",
+      "Advise customer to verify statement after 48-72 hours",
+      "Offer agent escalation if charges actually settle duplicates"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 17,
+    "conversation_id": "gold_curated_17",
+    "customer_message": "Someone in another country used my stored Amazon card to buy $1,200 in gift cards right now! FRAUD!",
+    "context": "Active account compromise and unauthorized transactions.",
+    "gold_intent": "billing_overcharge",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Immediate high-priority escalation to Fraud & Account Security",
+      "Advise customer to lock credit card and disconnect linked payment methods"
+    ],
+    "escalation_reason": "Active security compromise and fraudulent transaction reported."
+  },
+  {
+    "id": 18,
+    "conversation_id": "gold_curated_18",
+    "customer_message": "I just realized I shipped my order to my old apartment address. Can I change it to my new address?",
+    "context": "Order placed an hour ago.",
+    "gold_intent": "order_modification",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Instruct how to edit shipping address in 'Your Orders' before dispatch",
+      "Clarify that if already dispatched, address cannot be redirected by customer"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 19,
+    "conversation_id": "gold_curated_19",
+    "customer_message": "Package is already out with UPS. Can you call the driver and have them deliver to 42 Elm Street instead of 10 Oak Lane?",
+    "context": "Package in transit with carrier.",
+    "gold_intent": "order_modification",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Explain that carriers in transit cannot be rerouted via simple bot instructions",
+      "Escalate to logistics team to review carrier intercept feasibility or carrier pickup holding"
+    ],
+    "escalation_reason": "In-transit carrier reroute requires specialized logistics tool intervention."
+  },
+  {
+    "id": 20,
+    "conversation_id": "gold_curated_20",
+    "customer_message": "I can't log into my account. It says password incorrect, and when I request a reset, no email arrives.",
+    "context": "Locked out of account.",
+    "gold_intent": "account_access_security",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Escalate to Account Verification & Recovery Team",
+      "Do not request passwords or secret tokens in chat",
+      "Direct to official secure account recovery portal"
+    ],
+    "escalation_reason": "Account access lockout and potential compromise requires secure identity verification."
+  },
+  {
+    "id": 21,
+    "conversation_id": "gold_curated_21",
+    "customer_message": "I got a notification that an unknown device from Russia logged into my Amazon account. What should I do?",
+    "context": "Suspicious login alert.",
+    "gold_intent": "account_access_security",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Immediate escalation to Security Response",
+      "Advise immediate password change and enabling Two-Step Verification (2FA)",
+      "Instruct to check active sessions under 'Manage Your Content and Devices'"
+    ],
+    "escalation_reason": "Security alert: unauthorized third-party device login attempt."
+  },
+  {
+    "id": 22,
+    "conversation_id": "gold_curated_22",
+    "customer_message": "What is included with Prime Student and how long is the free trial period?",
+    "context": null,
+    "gold_intent": "prime_membership",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Provide accurate terms (6-month trial sponsored by partners, then discounted rate)",
+      "List core perks: free shipping, Prime Video, exclusive deals",
+      "Provide verification requirements (.edu email or proof of enrollment)"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 23,
+    "conversation_id": "gold_curated_23",
+    "customer_message": "Prime Video is giving error code 7031 on my Samsung smart TV every time I try to watch a movie.",
+    "context": "Streaming playback error.",
+    "gold_intent": "prime_membership",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Provide standard Prime Video troubleshooting steps (restart app, check TV firmware update, restart router)",
+      "Check internet connection speed"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 24,
+    "conversation_id": "gold_curated_24",
+    "customer_message": "When will the PlayStation 5 digital edition be back in stock on Amazon UK?",
+    "context": null,
+    "gold_intent": "product_availability",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Explain that restock dates vary based on supplier shipments",
+      "Instruct customer to click 'Email Me' or 'Notify Me' on the product detail page",
+      "Do not invent fake restock dates"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 25,
+    "conversation_id": "gold_curated_25",
+    "customer_message": "Your delivery driver threw my box over an 8-foot fence onto my dog! I am calling my attorney and filing a lawsuit tomorrow!",
+    "context": "Legal threat and driver misconduct.",
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Strictly escalate to Executive Customer Relations & Legal Compliance",
+      "Acknowledge severe incident with utmost professionalism",
+      "Do not argue, debate, or admit liability in automated chat"
+    ],
+    "escalation_reason": "Explicit legal threat and severe driver physical misconduct."
+  },
+  {
+    "id": 26,
+    "conversation_id": "gold_curated_26",
+    "customer_message": "Amazon is hands down the best company in the world! My package arrived 4 hours early on Sunday morning. Thank you!",
+    "context": "Praise and positive feedback.",
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Warmly thank the customer for the wonderful feedback",
+      "Reinforce brand appreciation without overpromising future delivery times"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 27,
+    "conversation_id": "gold_curated_27",
+    "customer_message": "The checkout button is completely greyed out and clicking 'Place Your Order' does nothing on Chrome.",
+    "context": "Browser checkout freeze.",
+    "gold_intent": "app_technical_issue",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Suggest clearing browser cache/cookies or testing in incognito mode",
+      "Suggest trying the Amazon Mobile App or disabling ad-blocker extensions",
+      "Do not state site-wide server outage unless verified"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 28,
+    "conversation_id": "conv_19191_19189",
+    "customer_message": "is my parcel lost in transit Iâve never experienced a delay with delivery from you!! https://t.co/DJ4tGuR94P",
+    "context": null,
+    "gold_intent": "delivery_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's delivery status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 29,
+    "conversation_id": "conv_4956_4958",
+    "customer_message": "I have no option but to see if my delivery arrives on the scheduled date. But I will contact customer services if it doesn't arrive on time.",
+    "context": "Prior context: I'm sorry for the ongoing trouble with your deliveries! Have you had a chance to contact us about this: https://t.co/JzP7hlA23B? If so, what information or options were we able to offer? ^SB",
+    "gold_intent": "delivery_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's delivery status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 30,
+    "conversation_id": "conv_21035_21034",
+    "customer_message": "Today a amazon delivery boy shouted on me to not hve change of 1390 ..very shameful how the behave with customer @115821.com",
+    "context": null,
+    "gold_intent": "delivery_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's delivery status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 31,
+    "conversation_id": "conv_19458_33178",
+    "customer_message": "Then they mentioned the issue has been escalated and it would delivered in next 2 hours....6:30 PM....still waiting...",
+    "context": "Prior context: false commitment on delivery, also mentioned wrong information, delivery guy never contacted me on Tuesday. How could u do that? https://t.co/UG4a7DfhhL",
+    "gold_intent": "delivery_status",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's delivery status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "High risk security, fraud, or legal indicator in customer message."
+  },
+  {
+    "id": 32,
+    "conversation_id": "conv_2556_2554",
+    "customer_message": "I made a same day ship mid Monday and it said it would deliver that day. It didnât. Today it still says out for delivery, still no show.",
+    "context": "Prior context: Hello! We'd love to help. Can you tell us a bit more about what's happening? ^EB",
+    "gold_intent": "delivery_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's delivery status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 33,
+    "conversation_id": "conv_16105_16106",
+    "customer_message": "Yerwada, Pune delivery folks r habituated/instructed to mark package delivered, wen customer not reachable n product nt delivered",
+    "context": null,
+    "gold_intent": "delivery_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's delivery status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 34,
+    "conversation_id": "conv_33301_33299",
+    "customer_message": "My order number: 171-2623585-5777153 is not yet delivered. This is the third time I am facing the problem @115850",
+    "context": null,
+    "gold_intent": "delivery_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's delivery status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 35,
+    "conversation_id": "conv_15668_15666",
+    "customer_message": "#SuperValueDayQuiz Where is the result of super value day quiz conducted on Oct 1 and 2 ? @AmazonHelp",
+    "context": null,
+    "gold_intent": "delivery_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's delivery status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 36,
+    "conversation_id": "conv_30003_30001",
+    "customer_message": "Despite the fact that I don't actually have my delivery, @115830 insist on telling me that it's delivered and won't help me get it. Highly suspicious business practices going on, even by their standards!",
+    "context": null,
+    "gold_intent": "delivery_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's delivery status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 37,
+    "conversation_id": "conv_22538_22536",
+    "customer_message": "Dear @AmazonHelp I've been paying for prime for awhile and having 2 packages due today &amp; one being undeliverable is VERY annoying. Explain",
+    "context": null,
+    "gold_intent": "delivery_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's delivery status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 38,
+    "conversation_id": "conv_13170_13168",
+    "customer_message": "why is your AMZL US shipping service not show more updates online? I had another package with this not delivered.",
+    "context": null,
+    "gold_intent": "delivery_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's delivery status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 39,
+    "conversation_id": "conv_38834_38833",
+    "customer_message": "I have had horrible experience with return pick up which was to arrive on 26.10.17. Still awaited. Tracking no. 710399667431",
+    "context": null,
+    "gold_intent": "delivery_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's delivery status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 40,
+    "conversation_id": "conv_14286_14284",
+    "customer_message": "If it isn't clear yet, I WANT MY MONEY BACK. I NEVER AUTHORIZED THE LAST 4 TRANSACTIONS THAT WERE MADE. WTF.",
+    "context": "Prior context: I'm absolutely mad right now that @119038 has said nothing about how @115821 Pay has charged me multiple times on subscriptions.",
+    "gold_intent": "refund_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's refund status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 41,
+    "conversation_id": "conv_29537_29538",
+    "customer_message": "Had notification of 3rd item being refunded. Nothing for remaining 2 items",
+    "context": "Prior context: When you spoke with our support team, what options were we able to explore with you? ^WM",
+    "gold_intent": "refund_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's refund status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 42,
+    "conversation_id": "conv_16794_16793",
+    "customer_message": "form has been filled awaiting for a solution n refund. I have already invested my energy in explaining before, kindly treat it urgent.",
+    "context": "Prior context: I'm sorry for the trouble. Please fill this form: https://t.co/beaaDm0muc and weâll contact you at the earliest. ^AU",
+    "gold_intent": "refund_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's refund status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 43,
+    "conversation_id": "conv_38824_38823",
+    "customer_message": "my order got cancelled from ur end, and inspite of notifying u guys still haven't refunded! Its been a week!!",
+    "context": null,
+    "gold_intent": "refund_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's refund status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 44,
+    "conversation_id": "conv_21495_21497",
+    "customer_message": "Called them a 1000 times..also wrote a mail to mr.Amit..still no reply.. I'm fed up now and want the refund as soon as possible..pls revert",
+    "context": "Prior context: That's unacceptable indeed, did you report this to our customer service team here: https://t.co/vlvfJr4nN9? ^SI",
+    "gold_intent": "refund_status",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's refund status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "High negative sentiment and brand dissatisfaction requiring supervisor handling."
+  },
+  {
+    "id": 45,
+    "conversation_id": "conv_19477_19476",
+    "customer_message": "broke family&amp; friends trust.Ordered a product month ago,return/refund requested on same month, but still waiting for pickup &amp; refund https://t.co/noCu65cIeB",
+    "context": null,
+    "gold_intent": "refund_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's refund status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 46,
+    "conversation_id": "conv_38811_38809",
+    "customer_message": "Amazon India can be rated as \"0\" for its service! Taking 60 days for a refund.",
+    "context": null,
+    "gold_intent": "refund_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's refund status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 47,
+    "conversation_id": "conv_2570_2569",
+    "customer_message": "yes i did,but amazonuk is not doing the refund process.if they do it .i will get the money",
+    "context": "Prior context: Have you had a chance to speak with your bank regarding the refund? ^EA",
+    "gold_intent": "refund_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's refund status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 48,
+    "conversation_id": "conv_36582_36580",
+    "customer_message": "When will the packet will get collected and refund sent back to account.. https://t.co/HlgruNCSDB",
+    "context": null,
+    "gold_intent": "refund_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's refund status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 49,
+    "conversation_id": "conv_16820_16819",
+    "customer_message": "Most #pethetic service right look at the time i am waiting since 2 days and guess wat I am a #primemember #badservice #refund https://t.co/KKsr3XCfjz",
+    "context": "Prior context: Sorry for the delay. I'll be sure to pass on your feedback. Kindly wait until the mentioned time frame. Do keep us posted. ^AK",
+    "gold_intent": "refund_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's refund status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 50,
+    "conversation_id": "conv_27847_27845",
+    "customer_message": "Order No. #402-4667119-6645143 return requested but not yet received the refund.Amazon do something regarding it. https://t.co/vYGomUmP8L",
+    "context": null,
+    "gold_intent": "refund_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's refund status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 51,
+    "conversation_id": "conv_18957_18958",
+    "customer_message": "I need a proper compensation and full refund of my order. Contact me on 9140560819 for any other detail.",
+    "context": "Prior context: We've sent the correspondence to your registered email ID. Kindly check and reply with your concerns. 1/2^SC",
+    "gold_intent": "refund_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's refund status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 52,
+    "conversation_id": "conv_15272_15271",
+    "customer_message": "Please don't help.u have very useless process of helping.if u want plz refund me atleast in time which is also now least expected",
+    "context": "Prior context: I'd like to help. Please write to us here: https://t.co/GIJyeYqKE0 and I'll reach out to you. ^SA",
+    "gold_intent": "refund_status",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's refund status inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 53,
+    "conversation_id": "conv_16117_16116",
+    "customer_message": "No speedy respnse frm the seller side..I asked 2 return my money but they are not ready 2 clr my issue i need my query to b solved",
+    "context": null,
+    "gold_intent": "return_exchange",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's return exchange inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "High risk security, fraud, or legal indicator in customer message."
+  },
+  {
+    "id": 54,
+    "conversation_id": "conv_17655_17657",
+    "customer_message": "I need a solution why u r not helping consumers on self return things. M not bought product to self return. Why Amazon allows such seller",
+    "context": "Prior context: You may refer here: https://t.co/M27c4qF86m for details on refund for return shipping charges. Hope this helps! 3/3 ^AB",
+    "gold_intent": "return_exchange",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's return exchange inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 55,
+    "conversation_id": "conv_13167_13166",
+    "customer_message": "Unable to what they promised not gave one plus 5 offer only sale product after they Dont care also not return back,Its hoplessð¡",
+    "context": null,
+    "gold_intent": "return_exchange",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's return exchange inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 56,
+    "conversation_id": "conv_35149_35150",
+    "customer_message": "Yes many times since yesterday however am getting very little help and the return pick is getting rescheduled every time",
+    "context": "Prior context: Could you confirm if you've escalated this to our support team from the link provided earlier? ^SQ",
+    "gold_intent": "return_exchange",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's return exchange inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 57,
+    "conversation_id": "conv_9807_9806",
+    "customer_message": ", #fake I phone 7 received from amazon , order India - order ID: 171-8960684-6076325, amazon India has refused to replace @115850 https://t.co/iHDriblZw9",
+    "context": null,
+    "gold_intent": "return_exchange",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's return exchange inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 58,
+    "conversation_id": "conv_18689_18688",
+    "customer_message": "What do you mean prices are ever changing? Is @115850 a stock exchange? And how can you charge more than MRP? Should I sue you?",
+    "context": "Prior context: Pricing and offers are decision of the sellers. The constantly changing marketplace 1/2^HN",
+    "gold_intent": "return_exchange",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's return exchange inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "High risk security, fraud, or legal indicator in customer message."
+  },
+  {
+    "id": 59,
+    "conversation_id": "conv_22579_22577",
+    "customer_message": "it's 3rd week still I haven't received my replacement order, I had received unworkable mobile &amp; still it's not replace #Amazon",
+    "context": null,
+    "gold_intent": "return_exchange",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's return exchange inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 60,
+    "conversation_id": "conv_29984_29983",
+    "customer_message": "Bought in Oct a 10.0r E phone . Replaced once as it was getting dead. Replaced phone got dead 25 times 2day. What next?",
+    "context": null,
+    "gold_intent": "return_exchange",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's return exchange inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 61,
+    "conversation_id": "conv_22542_22540",
+    "customer_message": "Hi I returned my order and I followed the proper procedure but got back an empty dabba from post office. @115850 @AmazonHelp PFA photos https://t.co/DmP0UrEttf",
+    "context": null,
+    "gold_intent": "return_exchange",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's return exchange inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 62,
+    "conversation_id": "conv_38852_38850",
+    "customer_message": "order returned due to damage product.. on investigation got to know seller refused to receive from blue dart",
+    "context": null,
+    "gold_intent": "return_exchange",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's return exchange inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 63,
+    "conversation_id": "conv_31304_31302",
+    "customer_message": "Frustrated that @115821 is charging me HALF of what I paid for an item to return it. Confused as I used Amazon Prime for a reason....",
+    "context": null,
+    "gold_intent": "return_exchange",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's return exchange inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 64,
+    "conversation_id": "conv_19132_19131",
+    "customer_message": "Its not my issue for return pick up. U people not mention any where before purchase product otherwise i think about purchase this order.",
+    "context": "Prior context: We'd like to take a closer look into this. Please reach out to us here: https://t.co/vlvfJr4nN9 and we'll check it for you.^AU",
+    "gold_intent": "return_exchange",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's return exchange inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "High risk security, fraud, or legal indicator in customer message."
+  },
+  {
+    "id": 65,
+    "conversation_id": "conv_27880_27879",
+    "customer_message": "worst return policy I have ever seen in any online shopping website.",
+    "context": null,
+    "gold_intent": "return_exchange",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's return exchange inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "High negative sentiment and brand dissatisfaction requiring supervisor handling."
+  },
+  {
+    "id": 66,
+    "conversation_id": "conv_17637_17636",
+    "customer_message": "The pick up has been arranged 5 times now and cancelled at the last moment without citing any reason!",
+    "context": "Prior context: Was a pick up arranged on your order or were you asked to self-return it? Please tell us more. ^HK",
+    "gold_intent": "cancellation_request",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's cancellation request inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 67,
+    "conversation_id": "conv_21944_21943",
+    "customer_message": "fire the india sales team. For last 6 days they schedule and cancel the pickup. 404-7148114-1043526",
+    "context": null,
+    "gold_intent": "cancellation_request",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's cancellation request inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 68,
+    "conversation_id": "conv_31386_31388",
+    "customer_message": "Itâs becoming a typical scenario. Item says prime, in stock, place order and it takes a week to get it. I canceled an order this am.",
+    "context": "Prior context: Oh no! I'm sorry for the troubles. Are you currently having an issue with an expected delivery? ^AL",
+    "gold_intent": "cancellation_request",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's cancellation request inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 69,
+    "conversation_id": "conv_28423_28417",
+    "customer_message": "it's the South Park game on PS4 coming out next week. I actually am not sure I want it but I can't see its price or cancel it",
+    "context": "Prior context: Can we get you to link us to the item you are trying to get delivered? ^MH",
+    "gold_intent": "cancellation_request",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's cancellation request inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 70,
+    "conversation_id": "conv_13157_13156",
+    "customer_message": "I have asked the customer care exec on phone to cancel the order. Don't want to waste any more of my time on this.",
+    "context": "Prior context: you've received from our team and we will get back to you with the latest update on your issue. (2/2)^SQ",
+    "gold_intent": "cancellation_request",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's cancellation request inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 71,
+    "conversation_id": "conv_16758_16755",
+    "customer_message": "fuck you guys. Canceling Prime. Not gonna do business with you guys ever again.",
+    "context": null,
+    "gold_intent": "cancellation_request",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's cancellation request inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 72,
+    "conversation_id": "conv_21871_21870",
+    "customer_message": "Yo @115830 stop putting my account on hold! I just got it off hold yesterday and it's already back on hold and orders cancelled wtf!?",
+    "context": null,
+    "gold_intent": "cancellation_request",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's cancellation request inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 73,
+    "conversation_id": "conv_27895_27893",
+    "customer_message": "To be honest after three weeks where things haven't shipped I'm now canceling orders",
+    "context": "Prior context: Apologies Siobhan. Have you been provided with revised delivery dates? ^TP",
+    "gold_intent": "cancellation_request",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's cancellation request inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 74,
+    "conversation_id": "conv_36488_36487",
+    "customer_message": "how do I cancel my amazon prime account? I donât use it anymore as no longer need it.",
+    "context": null,
+    "gold_intent": "cancellation_request",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's cancellation request inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 75,
+    "conversation_id": "conv_1706_1705",
+    "customer_message": "I have tried. Itâs not allowing me to access my account to cancel my membership, I havenât even used prime in almost 3 months.",
+    "context": "Prior context: Hmm... We'd like to take a better look at this with you. Please reach us via phone/chat here: https://t.co/JzP7hlA23B ^KP",
+    "gold_intent": "cancellation_request",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's cancellation request inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 76,
+    "conversation_id": "conv_20041_20040",
+    "customer_message": "how to stop my prime membership, since i was scammed and you do nothing to me, i need to cancel my membership.",
+    "context": null,
+    "gold_intent": "cancellation_request",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's cancellation request inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "High risk security, fraud, or legal indicator in customer message."
+  },
+  {
+    "id": 77,
+    "conversation_id": "conv_30506_30505",
+    "customer_message": "don't believe this. After having to cancel last order &amp; reorder for Amazon locker you've done exact same and sent from (cont)",
+    "context": null,
+    "gold_intent": "cancellation_request",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's cancellation request inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 78,
+    "conversation_id": "conv_1708_1707",
+    "customer_message": "being charged for amazon prime &amp; when I go to cancel it, itâs saying Iâm not a memberð ð ð",
+    "context": null,
+    "gold_intent": "cancellation_request",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's cancellation request inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 79,
+    "conversation_id": "conv_1736_1734",
+    "customer_message": "Two fake items in one day. Time to cancel my Amazon Prime membership. @AmazonHelp",
+    "context": null,
+    "gold_intent": "cancellation_request",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's cancellation request inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 80,
+    "conversation_id": "conv_14291_14290",
+    "customer_message": "What the hell @115821?! This boxed is beyond damaged. I wanted a new one! https://t.co/J36cokDm6l",
+    "context": null,
+    "gold_intent": "damaged_defective_item",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's damaged defective item inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 81,
+    "conversation_id": "conv_19485_19483",
+    "customer_message": "I have received the product in damaged condition, it's tempered from outside though material was not spilling.",
+    "context": null,
+    "gold_intent": "damaged_defective_item",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's damaged defective item inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 82,
+    "conversation_id": "conv_659_658",
+    "customer_message": ", itâd be nice if the book I waited 4 months for wasnât damaged inside of an undented box. #twinpeaks #twinâ¦ https://t.co/Lac4K7iQzJ https://t.co/JroqJKrH9Q",
+    "context": null,
+    "gold_intent": "damaged_defective_item",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's damaged defective item inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 83,
+    "conversation_id": "conv_18679_18678",
+    "customer_message": "Amazon truck damaged my lawn my lawn .Love Amazon . So sad no one called me back today as promised! Why?",
+    "context": null,
+    "gold_intent": "damaged_defective_item",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's damaged defective item inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 84,
+    "conversation_id": "conv_39576_39578",
+    "customer_message": "I did. It keeps happening to me. I mostly buy books, and my books end up looking like old books or they come damaged.",
+    "context": "Prior context: I'm sorry about this. Did you happen to escalate this to our support team here: https://t.co/T6y6Xlutbs? ^VN",
+    "gold_intent": "damaged_defective_item",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's damaged defective item inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 85,
+    "conversation_id": "conv_33293_33291",
+    "customer_message": "Hello @AmazonHelp Don't send a special edition game like this in just a cardboard sleeve. It clearly got crushed b/c bad packaging. https://t.co/zoEmj23Hh5",
+    "context": null,
+    "gold_intent": "damaged_defective_item",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's damaged defective item inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 86,
+    "conversation_id": "conv_11090_11089",
+    "customer_message": "My drying rack was broken when I opened the box. What should I do @115821? https://t.co/II4YnrWx0E",
+    "context": null,
+    "gold_intent": "damaged_defective_item",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's damaged defective item inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 87,
+    "conversation_id": "conv_17910_17909",
+    "customer_message": "Iâve just earned a Â£6 promo for a purchase of gift cards. Where within my account is it? I canât find it? Iâve got a confirmation",
+    "context": null,
+    "gold_intent": "billing_overcharge",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's billing overcharge inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'billing_overcharge' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 88,
+    "conversation_id": "conv_13563_13561",
+    "customer_message": "when do you guys charge for the Xbox one X I preordered? It ships the 6th.",
+    "context": null,
+    "gold_intent": "billing_overcharge",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's billing overcharge inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'billing_overcharge' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 89,
+    "conversation_id": "conv_25007_25009",
+    "customer_message": "Amazon Id __email__ I have added â¹460 and make a Jio recharge 399. As per your offer 101 cashback+ 20% on first top-up.I didn't",
+    "context": "Prior context: We're sorry to hear that. Could you please tell us what went wrong so we could check? ^HK",
+    "gold_intent": "billing_overcharge",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's billing overcharge inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'billing_overcharge' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 90,
+    "conversation_id": "conv_28440_28438",
+    "customer_message": "4 gifts do u hv an option 4 cards so an accompanying message cn b sent with the gift?",
+    "context": null,
+    "gold_intent": "billing_overcharge",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's billing overcharge inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'billing_overcharge' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 91,
+    "conversation_id": "conv_31417_31415",
+    "customer_message": "Guys please deep this! I was ranting about the shit service I received from @115830 and this fake amazon account @21011 posed as them and asked for my card details, address etc then BLOCKED ME ððððð©ð©ð©ð© Beware guys ! https://t.co/m5LWeYB9vc",
+    "context": null,
+    "gold_intent": "billing_overcharge",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's billing overcharge inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'billing_overcharge' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 92,
+    "conversation_id": "conv_17916_17914",
+    "customer_message": "why am i charged $10.99 for prime membership every month when i have purchased it for INR 499?",
+    "context": null,
+    "gold_intent": "billing_overcharge",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's billing overcharge inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'billing_overcharge' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 93,
+    "conversation_id": "conv_5315_5313",
+    "customer_message": "Someone keeps trying to buy playstation cards on my account. Having a hard time getting customer service",
+    "context": null,
+    "gold_intent": "billing_overcharge",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's billing overcharge inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'billing_overcharge' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 94,
+    "conversation_id": "conv_11066_11062",
+    "customer_message": "Regretting having bought @115821 Kindle Fire Kids Edition. Every day it has some random problem I have to fix. Now saying theres no SD card.",
+    "context": "Prior context: Pumpkin spice is here so it must be autumn! Weâve picked 3 fall cookbooks to whet your appetite: https://t.co/CadWTnRHy0 https://t.co/J1B61Odt0N",
+    "gold_intent": "billing_overcharge",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's billing overcharge inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'billing_overcharge' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 95,
+    "conversation_id": "conv_21867_21866",
+    "customer_message": "But everything I used was 100% legit and spent 4 hours yesterday with the bank and amazon making sure there was no problems",
+    "context": "Prior context: I just got everything back yesterday and sorted out any problems, now it's been put on hold because you could not confirm payment info",
+    "gold_intent": "billing_overcharge",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's billing overcharge inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'billing_overcharge' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 96,
+    "conversation_id": "conv_21941_21940",
+    "customer_message": "fed up pls look Order#4__credit_card__. I want my products dont need apologies. more than 5 apologise withme",
+    "context": null,
+    "gold_intent": "billing_overcharge",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's billing overcharge inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'billing_overcharge' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 97,
+    "conversation_id": "conv_21484_21483",
+    "customer_message": "One payment has been done through net banking and another through COD but I received back only one payment.",
+    "context": "Prior context: Please refer my previous tweets and I request to you to please look into the matter and refund my money https://t.co/neBgFgja9C",
+    "gold_intent": "billing_overcharge",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's billing overcharge inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'billing_overcharge' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 98,
+    "conversation_id": "conv_1710_1709",
+    "customer_message": "where can I chat with a support member for a false charge",
+    "context": null,
+    "gold_intent": "billing_overcharge",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's billing overcharge inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'billing_overcharge' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 99,
+    "conversation_id": "conv_25003_25005",
+    "customer_message": "No iâve already done that and you have taken more money out of my bank! Someone needs to contact me not an auto form",
+    "context": "Prior context: Hi, sorry to hear that, please get in touch with us here: https://t.co/JzP7hlA23B we'll help ^AS",
+    "gold_intent": "billing_overcharge",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's billing overcharge inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'billing_overcharge' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 100,
+    "conversation_id": "conv_17221_17219",
+    "customer_message": "This form also has a tab which asks for the email address associated with my Amazon account but there is NONE. How do I fill in that? Urghh",
+    "context": "Prior context: I apologize for this. Request you to share the details using this link: https://t.co/cQVomR1pWz and we'll look into it. ^SK",
+    "gold_intent": "order_modification",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's order modification inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 101,
+    "conversation_id": "conv_21421_21419",
+    "customer_message": "I ordered from .fr, but I do not have my order number, only my name and address, scenes as it was ordered for me",
+    "context": "Prior context: Hi, what Amazon website did you use to place your order? https://t.co/Ao8rYb8Jzw? Please don't share the order number here. ^JJ",
+    "gold_intent": "order_modification",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's order modification inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 102,
+    "conversation_id": "conv_25873_25874",
+    "customer_message": "No, but I emailed to offer a copy of my rights reversion letter and \"in review\" just changed to \"publishing\" on my KDP page. Appears ok.",
+    "context": "Prior context: Did our publisher team set a time-frame for the approval process? ^KN",
+    "gold_intent": "order_modification",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's order modification inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 103,
+    "conversation_id": "conv_25298_25299",
+    "customer_message": "Yeah it happens with you! Stuff that is marked amazon prime and says I'll get it in two days and then at 8pm on the second day changes ETA.",
+    "context": "Prior context: I'm sorry to hear this! Does this tend to happen with a certain carrier? Keep us updated! ^AB",
+    "gold_intent": "order_modification",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's order modification inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 104,
+    "conversation_id": "conv_4834_4832",
+    "customer_message": "Apparently if you preorder something then move and update your address the preorder doesn't update automagically. #lessonlearned?",
+    "context": "Prior context: .@115821 said they delivered #ADSOM but it's not there. Yet another annoying thing to deal with today ð¢",
+    "gold_intent": "order_modification",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's order modification inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 105,
+    "conversation_id": "conv_23198_23197",
+    "customer_message": "Order number 407-2412845-1630730, how to change shipping address?",
+    "context": null,
+    "gold_intent": "order_modification",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's order modification inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 106,
+    "conversation_id": "conv_28890_28891",
+    "customer_message": "Yes. Without any change of content. Amazon is sending all emails with âapologizeâ and we will take action within 3-5 days for past 60 days",
+    "context": "Prior context: Apologies. Could you confirm If you are receiving emails from our team after you respond to them? If not, let us know. ^NK",
+    "gold_intent": "order_modification",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's order modification inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 107,
+    "conversation_id": "conv_35201_35202",
+    "customer_message": "Toujours pas (alors qu'on est thÃ©oriquement la meilleure vente de la catÃ©gorie foot). Je ne sais plus comment m'y prendre pour vous demander de changer de catÃ©gorie.",
+    "context": "Prior context: Vous pouvez compter sur moi et merci pour votre patience et votre comprÃ©hension.",
+    "gold_intent": "order_modification",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's order modification inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 108,
+    "conversation_id": "conv_11072_11074",
+    "customer_message": "yes it was due today by 8pm and now its changed to tomorrow or the next couple days... but isn;t there a guarantee?",
+    "context": "Prior context: I'm sorry you haven't received your order yet! Have we missed the delivery date confirmed via e-mail: https://t.co/CTNCjpcgOm? ^GM",
+    "gold_intent": "order_modification",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's order modification inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 109,
+    "conversation_id": "conv_37631_37630",
+    "customer_message": "Some of the \"X-Ray Lyrics\" that accompany songs in the app are incorrect. When I spot these, is there a way for me to suggest changes?",
+    "context": "Prior context: We'd be glad to assist with this, Rich! Without posting personal account information, tell us more about this. ^FR",
+    "gold_intent": "order_modification",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's order modification inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 110,
+    "conversation_id": "conv_24512_24514",
+    "customer_message": "Hi âºï¸ I did indeed. A two-hour slot which is what I normally choose and used to be free. Has this recently changed?",
+    "context": "Prior context: Hi, did you select a one hour or two hour delivery time frame? ^TS",
+    "gold_intent": "order_modification",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's order modification inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 111,
+    "conversation_id": "conv_33196_33198",
+    "customer_message": "Yes, I got in touch still the issue is not resolved, they change my profile to US but it automatically changes to the indian server. grrr",
+    "context": "Prior context: Sorry to learn that you're facing issues with echo. Please get in touch with us here: https://t.co/vlvfJr4nN9 1/2 ^KH",
+    "gold_intent": "order_modification",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's order modification inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "High risk security, fraud, or legal indicator in customer message."
+  },
+  {
+    "id": 112,
+    "conversation_id": "conv_11084_11086",
+    "customer_message": "So much of the programming has changed on Prime. Blues Clues was free, now it's not. Still constantly having problems with my Fire Stick.",
+    "context": "Prior context: I'm so sorry to hear this! Without revealing any personal account information, will you provide us with more details? ^LH",
+    "gold_intent": "order_modification",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's order modification inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 113,
+    "conversation_id": "conv_19214_19213",
+    "customer_message": "Can't change my new Email address with @115821 ! I'm repeatedly told: \"There was a problem with your Password\"",
+    "context": null,
+    "gold_intent": "order_modification",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's order modification inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 114,
+    "conversation_id": "conv_5312_5311",
+    "customer_message": "Still not working. They sent me a link to reset the password, try and sign in with new password and still locked out.",
+    "context": "Prior context: Thanks for letting us know about this, Jon. We're here to help! We can be reached 24/7 here: https://t.co/hApLpMlfHN. Please do keep us in the loop. ^BL",
+    "gold_intent": "account_access_security",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's account access security inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'account_access_security' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 115,
+    "conversation_id": "conv_21861_21859",
+    "customer_message": "Alexa, I can't login to iOS app, can you help? I'm in China",
+    "context": null,
+    "gold_intent": "account_access_security",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's account access security inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'account_access_security' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 116,
+    "conversation_id": "conv_28910_28911",
+    "customer_message": "I cant get to this link bcoz it is saying to login amaozn aocunt.but my acount is on hold.plz unhold my account",
+    "context": "Prior context: I get your concern regarding a refund. Please connect with us here: https://t.co/vlvfJr4nN9 &amp; we'll help you. (1/2)^BS",
+    "gold_intent": "account_access_security",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's account access security inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'account_access_security' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 117,
+    "conversation_id": "conv_14014_14015",
+    "customer_message": "Who's security? UR asking 4 MY personal details. Surely U have company phone #s that aren't \"personal.\" This is absurd. I'm TRYING 2 work w/U people. Y do U make it so hard? May I be referred to a mgr who isn't afraid 2 speak w/an intelligent, reasonable woman 2 work out sols",
+    "context": "Prior context: We'll ask customers to leave their totes out for pickup. However, they shouldn't be left for 10 or more days awaiting pickup. For security, we're unable to DM personal details. Once we receive your information at the link we've referenced, we can help sort this. ^RA",
+    "gold_intent": "account_access_security",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's account access security inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'account_access_security' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 118,
+    "conversation_id": "conv_21027_21029",
+    "customer_message": "Hi, can't access chat as I'm locked out of my account and phone is too expensive since I'm outside the US &amp; I'm sure it's not toll free.",
+    "context": "Prior context: Hi. I'm sorry to hear that. Have you tried by phone/chat for a swifter response? ^DC",
+    "gold_intent": "account_access_security",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's account access security inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'account_access_security' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 119,
+    "conversation_id": "conv_37596_37598",
+    "customer_message": "I canât DM you my order ID? Strange, have to login to my account &amp; send u details, then that I have already done n number of times via app",
+    "context": "Prior context: Apologies, we'd like to help. Kindly drop your details here: https://t.co/beaaDm0muc and we'll contact you soon. ^MO",
+    "gold_intent": "account_access_security",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's account access security inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'account_access_security' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 120,
+    "conversation_id": "conv_20461_20459",
+    "customer_message": "No any solution provide from your side and I am unable to contact with Amazon care because our call is blocked by Amazon..",
+    "context": "Prior context: Sorry about the stretch, Kaushal. Please reply to the email sent to you. Once we receive your reply, we'll check &amp; assist.^SV",
+    "gold_intent": "account_access_security",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's account access security inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'account_access_security' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 121,
+    "conversation_id": "conv_11590_11589",
+    "customer_message": "my Amazonid is __email__ is blocked since 3months please unblock it.",
+    "context": null,
+    "gold_intent": "account_access_security",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's account access security inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'account_access_security' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 122,
+    "conversation_id": "conv_24535_24536",
+    "customer_message": "It's says to sign up for prime and then takes me to website where I see manage prime Membership page once I login",
+    "context": "Prior context: May I please know what error do you see while trying to access the videos? ^SH",
+    "gold_intent": "account_access_security",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's account access security inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'account_access_security' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 123,
+    "conversation_id": "conv_21860_21872",
+    "customer_message": "Error message telling me \"wrong password\", but I am 100% sure my password was right. This happens to everyone around me ...",
+    "context": "Prior context: Hi, sorry to hear. Are you receiving an error message? ^TP",
+    "gold_intent": "account_access_security",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's account access security inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'account_access_security' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 124,
+    "conversation_id": "conv_15681_15680",
+    "customer_message": "everytime I try to purachase something my account will get blocked.. worst service ever. sorry to tell that.",
+    "context": null,
+    "gold_intent": "account_access_security",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's account access security inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'account_access_security' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 125,
+    "conversation_id": "conv_22526_22528",
+    "customer_message": "hahahaha, you sent me this yesterday. If my problem is, I can't login, how do you expect me to complete this page I have to log in to?",
+    "context": "Prior context: Pls fil out this secure form and a specialist will look into this for you https://t.co/tkLCr7DNil ^KM",
+    "gold_intent": "account_access_security",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's account access security inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'account_access_security' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 126,
+    "conversation_id": "conv_3732_3734",
+    "customer_message": "I canât log in because itâs locked.",
+    "context": "Prior context: I'm sorry your account is locked! Please reach out directly to us here: https://t.co/jzvkhdlrK5 so we can take a closer look. ^TN",
+    "gold_intent": "account_access_security",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's account access security inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'account_access_security' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 127,
+    "conversation_id": "conv_40383_40384",
+    "customer_message": "Yes, I tried to relog in, and it says my account is locked and they sent an email to help unlock it, but I got no email.",
+    "context": "Prior context: Have you been prompted to log into your https://t.co/nUUp5MLhYl account to upload your billing information? ^TG",
+    "gold_intent": "account_access_security",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's account access security inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "Category 'account_access_security' involves private credentials or billing ledger adjustments."
+  },
+  {
+    "id": 128,
+    "conversation_id": "conv_21568_21567",
+    "customer_message": "Ohhh so this how u treat a prime customer...unless u provide me resolution don't reply on this and also I am tagging big people from Amazon to look into it...stop send me tweets with empathy...I don't need it...m the customer, I'll go somewhere else",
+    "context": "Prior context: I understand waiting could be tiresome but rest assured, the concerned team is working on a resolution for you. ^BV",
+    "gold_intent": "prime_membership",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's prime membership inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 129,
+    "conversation_id": "conv_40360_40362",
+    "customer_message": "Thanks. That worked. How will my Complimentary Amazon Prime membership that comes with Echo get added to my a/c? SOS @115850 @AmazonHelp",
+    "context": "Prior context: Got to https://t.co/crghASQyRX. Login with your amazon credentials. Click on Settings and set country to India. ^HN",
+    "gold_intent": "prime_membership",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's prime membership inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 130,
+    "conversation_id": "conv_36563_36562",
+    "customer_message": "when is Raja the great movie available in Telugu in prime",
+    "context": null,
+    "gold_intent": "prime_membership",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's prime membership inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 131,
+    "conversation_id": "conv_30026_30025",
+    "customer_message": "bom dia! Agora que o serviÃ§o do prime vÃ­deo pode ser pago em Reais, fica a dÃºvida: os outros canais extras do prime tambÃ©m?",
+    "context": null,
+    "gold_intent": "prime_membership",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's prime membership inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 132,
+    "conversation_id": "conv_20028_20026",
+    "customer_message": "Nothing like paying @115821 for prime to get free quick shipping to be told the one thing I order per 6 months won't be on time lol",
+    "context": null,
+    "gold_intent": "prime_membership",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's prime membership inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 133,
+    "conversation_id": "conv_3749_3747",
+    "customer_message": "why your videos on Germany breaks too?",
+    "context": null,
+    "gold_intent": "prime_membership",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's prime membership inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 134,
+    "conversation_id": "conv_34556_34555",
+    "customer_message": "My prime membership has expired &amp; the one bundled with echo purchase has not become effective. So no prime vid, amazon now &amp; fast shipping",
+    "context": "Prior context: I couldn't comprehend your concern. Could you elaborate the issue so that we can assist you accordingly? ^SQ",
+    "gold_intent": "prime_membership",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's prime membership inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 135,
+    "conversation_id": "conv_38831_38832",
+    "customer_message": "let me know please. My Prime has been disrupted because of a delay by you.",
+    "context": "Prior context: Thanks for confirming. We'd like to look into it. Write to us here: https://t.co/beaaDm0muc and we'll contact you soon. ^MO",
+    "gold_intent": "prime_membership",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's prime membership inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 136,
+    "conversation_id": "conv_4843_11348",
+    "customer_message": "AmazonPrimeçºéã§è©æ¬ºã®æãã¯ããã¾ããï¼ Nintendo Switchãè³¼å ¥ããããã§ãã è¦ªã«Amazonè²©å£².çºéãããªãã¨ããäºãçç±ã«æ­ããã¾ãã AmazonPrimeã¯å®å¿ãªã®ã§ãããã AmazonPrimeã®ååã¯Amazonãè²¬ä»»ãæã£ã¦èªå® ã«å±ãã¦ããããã®ã§ããããï¼ ããã¨ãè²©å£²ã·ã§ããããã®çºéã§ããï¼",
+    "context": "Prior context: ããã°ã»ã¼ã«ã#ãµã¤ãã¼ãã³ãã¼ ãã12æ8æ¥18æããéå¬æ±ºå®ï¼ å®¶é»ããã¡ãã·ã§ã³ãªã©å¤ãã®äººæ°ååãä»å¹´æå®å¤ã§å¨åº«ãè±å¯ã«ãç¨æããã©ã¤ã ä¼å¡ãªãä¸é¨ãç¹é¸ã¿ã¤ã ã»ã¼ã«ããããã«å²å¼ãä»å¹´æå¾ã®å¤§ã»ã¼ã«ããè¦éããªãã https://t.co/eT1baAq9Y4",
+    "gold_intent": "prime_membership",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's prime membership inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 137,
+    "conversation_id": "conv_17196_17197",
+    "customer_message": "I dont need to contact u now, it is as mistake take that i paid for Prime.",
+    "context": "Prior context: further assistance. Appreciate your understanding. (2/2) ^KA",
+    "gold_intent": "prime_membership",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's prime membership inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 138,
+    "conversation_id": "conv_11021_11025",
+    "customer_message": "The carrier doesn't sell free 2 day shipping as part of a membership. Amazon does.",
+    "context": "Prior context: I'm sorry! We'd love to help where we can. Please give us more details without sharing personal account information. ^LM",
+    "gold_intent": "prime_membership",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's prime membership inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 139,
+    "conversation_id": "conv_5778_5776",
+    "customer_message": "Pago para tener el Prime con vosotros para que me tarden en llegar 10 dias? Reembolsadme la compra y lo compro en cualquier otro sitio",
+    "context": "Prior context: https://t.co/ohEeuAt7A6 estais de coÃ±a no?el reembolso lo quiero ya, era para un regalo para hoy y tenia que llegar ayer.",
+    "gold_intent": "prime_membership",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's prime membership inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 140,
+    "conversation_id": "conv_35187_35185",
+    "customer_message": "Signed up for @116090 Prime to buy a SNES today. Canât find it! @AmazonHelp Is it there or am I now a person who canât use websites? ð",
+    "context": null,
+    "gold_intent": "prime_membership",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's prime membership inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 141,
+    "conversation_id": "conv_17669_17668",
+    "customer_message": ": can we connect echo dot to videocon smart tv? If yes, how?",
+    "context": null,
+    "gold_intent": "prime_membership",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's prime membership inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 142,
+    "conversation_id": "conv_27913_27909",
+    "customer_message": ".@120474 @AmazonHelp Very good. Pre-order album to get access to pre-sale then it doesn't work. https://t.co/wy0wzkEFdQ",
+    "context": null,
+    "gold_intent": "product_availability",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's product availability inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 143,
+    "conversation_id": "conv_36511_36512",
+    "customer_message": "any way to let me know as soon as I can pre-order? have I mentioned that I really want this album? I also have a ? abt record players.",
+    "context": "Prior context: (3/3) Meanwhile, I'll submit feedback on the pre-order advertisement I saw on this page: https://t.co/LFf9e8OqxK ^MG",
+    "gold_intent": "product_availability",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's product availability inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 144,
+    "conversation_id": "conv_18981_18980",
+    "customer_message": "And secondly I would like to know if it was out of stock how I was able to place the order",
+    "context": "Prior context: First of all a assured by calling about the delivery and both time they said it will be delivered and now it's canceled.",
+    "gold_intent": "product_availability",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's product availability inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 145,
+    "conversation_id": "conv_20479_20478",
+    "customer_message": "Hey @115850 any plans of restocking @120473 DVDs ? #ImpracticalJokers",
+    "context": null,
+    "gold_intent": "product_availability",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's product availability inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 146,
+    "conversation_id": "conv_34476_34475",
+    "customer_message": "Hey @115830 I pre-ordered @123473 's book Slobberknocker on Sept 11th for release on Oct 19th and still nothing. Any status update?",
+    "context": null,
+    "gold_intent": "product_availability",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's product availability inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 147,
+    "conversation_id": "conv_627_629",
+    "customer_message": "Yeah this is crazy weâre less than a week away and still no Shipping Information on something that we Pre-ordered back in August",
+    "context": "Prior context: I'm sorry for the wait. You'll receive an email as soon as we have an estimated delivery date. ^FJ",
+    "gold_intent": "product_availability",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's product availability inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 148,
+    "conversation_id": "conv_37627_37629",
+    "customer_message": "Yes, letting me \"it's delayed\", well duh! How the he'll does it go from pre-order to out of stock?",
+    "context": "Prior context: I'm so sorry that your book didn't get delivered! I can understand your frustration! Did you receive an email explaining? ^FR",
+    "gold_intent": "product_availability",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's product availability inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 149,
+    "conversation_id": "conv_36483_36480",
+    "customer_message": "Amazon didn't even ship my in stock tools, until 11 days after I ordered. 9 days after it was promised to arrive. Wtf @AmazonHelp?",
+    "context": null,
+    "gold_intent": "product_availability",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's product availability inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 150,
+    "conversation_id": "conv_36505_36502",
+    "customer_message": "Why is there a box that says I can pre-order Songs of Experience - and listen to 2 songs - but I click &amp; it says \"not found\"?",
+    "context": null,
+    "gold_intent": "product_availability",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's product availability inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 151,
+    "conversation_id": "conv_21502_21501",
+    "customer_message": "Pathetic service from Amazon...",
+    "context": "Prior context: Amit Agarwal, SVP &amp; Country Head, @115850 in conversation with @120697 https://t.co/qlXKIW2Ack",
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's general feedback complaint inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 152,
+    "conversation_id": "conv_19134_21042",
+    "customer_message": "Amazon seller support team is not providing pickup service on time to new seller. We are chasing them from 23rd Oct and lost our 4 orders",
+    "context": "Prior context: We'd like to take a closer look into this. Please reach out to us here: https://t.co/vlvfJr4nN9 and we'll check it for you.^AU",
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's general feedback complaint inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 153,
+    "conversation_id": "conv_18413_18414",
+    "customer_message": "Call me on 9873388201. I have already spent a good part of my day taking to ur useless customer service and chatting. Not going to fill.",
+    "context": "Prior context: I get your disappointment. Iâd like to help you; please fill this form: https://t.co/beaaDm0muc and Iâll contact you soon. ^SC",
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's general feedback complaint inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 154,
+    "conversation_id": "conv_36599_36600",
+    "customer_message": "#pathetic post sale service @115850",
+    "context": "Prior context: Thanks a bunch for sharing your details. We shall reach out to you at the earliest. ^CB",
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's general feedback complaint inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 155,
+    "conversation_id": "conv_30002_30004",
+    "customer_message": "Called them last night and was fobbed off with an email and no assistance whatsoever in actually getting my parcel. And that was the second time around as I got hung up on the first time. Terrible customer service!",
+    "context": "Prior context: I'm sorry you don't have your parcel! Have you had the chance to reach our phone support? If so, what info was provided? ^TK",
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's general feedback complaint inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "High negative sentiment and brand dissatisfaction requiring supervisor handling."
+  },
+  {
+    "id": 156,
+    "conversation_id": "conv_13880_13879",
+    "customer_message": "yeah and i will get it after i murder service center owner. I would rather throw this product in dumpster and let wll india know abt u cheat",
+    "context": "Prior context: Apologies for the inconvenience with policy constraint. We'll be able to assist you once service denial letter is received.^GS",
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's general feedback complaint inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 157,
+    "conversation_id": "conv_23037_23042",
+    "customer_message": "I sent an email to customer service and I got no answer",
+    "context": "Prior context: Hello! We don't have access to your Amazon account via Twitter. When you have time please get in touch with us here: https://t.co/hApLpMlfHN We'll be happy to help!^CN",
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's general feedback complaint inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 158,
+    "conversation_id": "conv_21055_21057",
+    "customer_message": "Ok, so you are now foubting whether i provided details or not. Thank you for your wonderful service. Such wonderful new lows.",
+    "context": "Prior context: If you've provided the details earlier in the link, you should've received an email from the social media team. ^NR",
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's general feedback complaint inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 159,
+    "conversation_id": "conv_17682_17683",
+    "customer_message": "Oh you are so considerate, then why can't you treat the orders you take with same consideration, #Awful customer service",
+    "context": "Prior context: Please don't provide your order details, we consider it to be personal information. Our page is visible to the public. ^KA",
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's general feedback complaint inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 160,
+    "conversation_id": "conv_21899_21898",
+    "customer_message": "Tried that the first time, customer service operators canât seem to read an email",
+    "context": "Prior context: Hi Tim- For all queries you can reach us directly via the below link: https://t.co/JzP7hlA23B Thanks. ^NV",
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's general feedback complaint inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 161,
+    "conversation_id": "conv_21890_21888",
+    "customer_message": "Still getting a string of irrelevant replies from people who canât read an email. Your service is dreadful",
+    "context": "Prior context: What was advised when you spoke with us directly? ^NV",
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's general feedback complaint inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 162,
+    "conversation_id": "conv_26971_26968",
+    "customer_message": "tried but it's not happening. This is what is service level. When someone asking for call back you guys showing different way",
+    "context": "Prior context: You may reach out to our support team via phone/chat/email here: https://t.co/2t6DQoUmNZ. ^MM",
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's general feedback complaint inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 163,
+    "conversation_id": "conv_23170_23169",
+    "customer_message": "is it #ethical to sell Audible in India if the support lies on shore? Why push this service down a customers throat?",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's general feedback complaint inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 164,
+    "conversation_id": "conv_27862_27861",
+    "customer_message": "As a trial I had Glasgow WORKING - but Brighton is a non-starter as others have reported - and indeed yourself. #terribleservice",
+    "context": "Prior context: desperately trying to book #morrissey tickets at Brighton - people had success at other venues. What's happening?",
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's general feedback complaint inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "High negative sentiment and brand dissatisfaction requiring supervisor handling."
+  },
+  {
+    "id": 165,
+    "conversation_id": "conv_27392_27390",
+    "customer_message": "Nooooo!!! Why is this happening when I haven't booked any tickets yet?? For Morrissey at Brighton! ð¡ð¡ https://t.co/sDZX5bifT6",
+    "context": null,
+    "gold_intent": "app_technical_issue",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's app technical issue inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 166,
+    "conversation_id": "conv_27375_27374",
+    "customer_message": "website won't allow me to buy Brighton Morrissey tickets. Always 'exceeded maximum number allowed'. Even if you ask for one",
+    "context": null,
+    "gold_intent": "app_technical_issue",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's app technical issue inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 167,
+    "conversation_id": "conv_22166_22164",
+    "customer_message": "Thanks @115821 for spooking me on Halloween with an iPhone cable that caught on fire, needed a good scare #HappyHalloween2017",
+    "context": null,
+    "gold_intent": "app_technical_issue",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's app technical issue inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 168,
+    "conversation_id": "conv_19427_19429",
+    "customer_message": "No use from your link or Amazon app support call or chat. Please see the order details.just telling us to wait.Not updating the status also. https://t.co/Uwp0eOu6Ia",
+    "context": "Prior context: I'm sorry for the incorrect tracking update. Kindly reach out to us here: https://t.co/vlvfJr4nN9 and we will fix this for you. ^AH",
+    "gold_intent": "app_technical_issue",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's app technical issue inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 169,
+    "conversation_id": "conv_30012_30022",
+    "customer_message": "Perhaps you can get me the callback I've been asking for for the last 2 months from a Vendor Management Team Member? Happy to DM phone# 1/2",
+    "context": "Prior context: Hello, we would not have access to your via Twitter. Please reach out to us directly and we will be glad to help. ^CR",
+    "gold_intent": "app_technical_issue",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's app technical issue inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 170,
+    "conversation_id": "conv_16782_16781",
+    "customer_message": "How much more time is needed? I think everything is online.. Is ur seller not responding? Or approval is needed from any ministry?",
+    "context": "Prior context: As you have provided your details, we have our team working on your issue, Gautam. (1/2)^SF",
+    "gold_intent": "app_technical_issue",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's app technical issue inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 171,
+    "conversation_id": "conv_29514_29517",
+    "customer_message": "Yes, try dialing 180030009009, select any option, IVR would say use the app the call will disconnect.",
+    "context": "Prior context: That seems odd. Any particular error, you are seeing? Do let us know. ^CB",
+    "gold_intent": "app_technical_issue",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's app technical issue inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 172,
+    "conversation_id": "conv_27919_27918",
+    "customer_message": "I show a add on app 13oct load amazon pay balance 15% back offer,i cant receive.,i call customer care says offer does nt exit wow",
+    "context": null,
+    "gold_intent": "app_technical_issue",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's app technical issue inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 173,
+    "conversation_id": "conv_29977_29979",
+    "customer_message": "How? Have tried via rubbish website, emailed given up on order &amp; now playing Twitter",
+    "context": "Prior context: My apologies Susan. Please get in touch: https://t.co/JzP7hlA23B and we'll be happy to look into this with you. ^DC",
+    "gold_intent": "app_technical_issue",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's app technical issue inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 174,
+    "conversation_id": "conv_19114_19111",
+    "customer_message": ": By what date will you publish the result of Amazon App Jackpot Contest which ended yesterday i.e 31st Oct 2017 ?",
+    "context": null,
+    "gold_intent": "app_technical_issue",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's app technical issue inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 175,
+    "conversation_id": "conv_27814_27812",
+    "customer_message": "I am unable to find a will to live on your site it just keeps showing me books. Very dissappointing",
+    "context": null,
+    "gold_intent": "app_technical_issue",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's app technical issue inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 176,
+    "conversation_id": "conv_40402_40403",
+    "customer_message": "Lo pedÃ­ por la app de amazon, pero el vendedor era externo",
+    "context": "Prior context: Dani, el pedido Â¿fue vendido y gestionado por Amazon o fue vendido por un vendedor externo? ^DA",
+    "gold_intent": "app_technical_issue",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's app technical issue inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 177,
+    "conversation_id": "conv_21462_21461",
+    "customer_message": "How do I chat online with someone re issue with my Amazon Fire for Kids? Website is useless.",
+    "context": null,
+    "gold_intent": "app_technical_issue",
+    "gold_action": "ESCALATE",
+    "expected_response_requirements": [
+      "Acknowledge customer's app technical issue inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": "High risk security, fraud, or legal indicator in customer message."
+  },
+  {
+    "id": 178,
+    "conversation_id": "conv_28458_28457",
+    "customer_message": "Usual ticket sale shambles. Very disappointing. Will have to try the general sale. Feel a bit misled.",
+    "context": null,
+    "gold_intent": "app_technical_issue",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's app technical issue inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 179,
+    "conversation_id": "conv_20482_20480",
+    "customer_message": "why isnât the brighton morrissey date on the presale website?",
+    "context": null,
+    "gold_intent": "app_technical_issue",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer's app technical issue inquiry",
+      "Do not fabricate private account details or fake shipping dates",
+      "Provide clear next step or escalation path"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 180,
+    "conversation_id": "conv_10653_10652",
+    "customer_message": "hey @115821 why did i pay extra for shipping only for my order to say 'arriving today' and it still hasnt shipped yet just wondering.",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 181,
+    "conversation_id": "conv_13132_13129",
+    "customer_message": "I have. And I have spoken to customer care again on chat.",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 182,
+    "conversation_id": "conv_11404_11402",
+    "customer_message": "ããããã°ãé»ç±ãã¼ã¿ã¼ãã©ããAmazonã§è²·ã£ã¦ããªãå¯ããªã£ããè©¦ããã(Â´Ïï½) ãã£ãã¼ð¹ãã£ãâ¦å ¥ããªãð¿ ãããã§ããã¼ã¿ã¼é¨åã¯ä½¿ããããâââ â¦ç¸«ãç³¸ãã±ã¼ãã«è²«éãã¨ãããªããã¼ãð ã¾ãã400åã ããâ¦ã¾ããªããæ¢ãã£ã¨ð¸ çãããé²å¯å¯¾ç­ãæ°ãã¤ããã ããð https://t.co/b7tvSIEeGm",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 183,
+    "conversation_id": "conv_17244_17245",
+    "customer_message": "Still I didn't received any update from your end. I have to book order today",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 184,
+    "conversation_id": "conv_27373_27372",
+    "customer_message": "Why is amazon not disbursing funds to sellers and giving no information? Has amazon gone bust?",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 185,
+    "conversation_id": "conv_27352_27354",
+    "customer_message": "I was told for the past 3 days to check my local office because I shoud have the items by now",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 186,
+    "conversation_id": "conv_35196_35198",
+    "customer_message": "Bonjour, il faudrait aussi mettre le livre en \"Football\" plutÃ´t que \"Hockey\". La premiÃ¨re requÃªte a Ã©tÃ© exhaussÃ©e mais pas celle-ci. Merci.",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 187,
+    "conversation_id": "conv_2543_2545",
+    "customer_message": "Just now, don't use Amazon much so didn't know the process if you don't receive an item",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 188,
+    "conversation_id": "conv_31818_33187",
+    "customer_message": "A las 13:30h y tras varias llamadas al call center un agente me dijo que corrÃ­a peligro. El mail llegÃ³ a las 18:50 sin margen de maniobra",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 189,
+    "conversation_id": "conv_1745_1743",
+    "customer_message": "My Kindle not working properly is breaking my heart! ð©ð",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 190,
+    "conversation_id": "conv_18895_24574",
+    "customer_message": "How it is beneficial , if I find my 500 gets stuck in Amazon pay balance account ððð",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 191,
+    "conversation_id": "conv_17246_17247",
+    "customer_message": "Afternoon only I have replied. I have screenshot also. Till now I didn't received any update. After doing regular follow-up also no action",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 192,
+    "conversation_id": "conv_26848_26847",
+    "customer_message": "When? Itâs not up yet?",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 193,
+    "conversation_id": "conv_11610_11608",
+    "customer_message": "ã¢ãã¾ã³ããã·ã§ã¼ãã¡ã¼ã«ã§ ææãµã¤ãä½¿ç¨ã«ããæªç´æéãçºçãã¦ã çãªè©æ¬ºã·ã§ã¼ãã¡ã¼ã«æ¥ãï¼ã¢ãã¾ã³ä½¿ã£ã¦ãªãï¼ï¼ï¼ï½ï½ï½",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 194,
+    "conversation_id": "conv_30517_30518",
+    "customer_message": "Sorry sir. I am not going to fill any details for something that has been brought upon by your system. I didn't ask for the rescheduling.",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 195,
+    "conversation_id": "conv_34496_34497",
+    "customer_message": "c'est bon ca fonctionne. merci de votre support",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 196,
+    "conversation_id": "conv_3744_3743",
+    "customer_message": "infÃ³rmese... no voy a perder mÃ¡s mi tiempo...",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 197,
+    "conversation_id": "conv_14082_14081",
+    "customer_message": "Amazonã§è²·ãç©ãªãããã¦ãªãã®ã«ãªããå±ãã¦ããã©æãã¦éããããð§",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 198,
+    "conversation_id": "conv_21931_21929",
+    "customer_message": "Have you gone deeper into the issue or it's just an automated instant reply over Twitter?? @115851",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 199,
+    "conversation_id": "conv_11579_11581",
+    "customer_message": "Please do it fast",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  },
+  {
+    "id": 200,
+    "conversation_id": "conv_676_675",
+    "customer_message": "Yeah idk the shipping company and it says âmike Ziemerâ signed for it in the mail room at our building lol",
+    "context": null,
+    "gold_intent": "general_feedback_complaint",
+    "gold_action": "AUTO",
+    "expected_response_requirements": [
+      "Acknowledge customer inquiry politely",
+      "Provide helpful guidance without hallucinating details"
+    ],
+    "escalation_reason": null
+  }
+]

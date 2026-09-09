@@ -1,0 +1,110 @@
+{
+  "AmazonHelp": {
+    "brand": "AmazonHelp",
+    "customer_tweets": 1867,
+    "support_replies": 2284,
+    "approx_conversations": 1867,
+    "avg_conversation_length": 2.22,
+    "percentage_with_brand_reply": 100.0,
+    "common_customer_patterns": [
+      "not",
+      "was",
+      "that",
+      "amazon",
+      "but",
+      "order",
+      "can",
+      "customer"
+    ]
+  },
+  "AppleSupport": {
+    "brand": "AppleSupport",
+    "customer_tweets": 1011,
+    "support_replies": 978,
+    "approx_conversations": 1011,
+    "avg_conversation_length": 1.97,
+    "percentage_with_brand_reply": 96.7,
+    "common_customer_patterns": [
+      "iphone",
+      "ios",
+      "phone",
+      "just",
+      "update",
+      "not",
+      "that",
+      "when"
+    ]
+  },
+  "ChipotleTweets": {
+    "brand": "ChipotleTweets",
+    "customer_tweets": 691,
+    "support_replies": 615,
+    "approx_conversations": 691,
+    "avg_conversation_length": 1.89,
+    "percentage_with_brand_reply": 89.0,
+    "common_customer_patterns": [
+      "burrito",
+      "halloween",
+      "costume",
+      "get",
+      "was",
+      "boorito",
+      "got",
+      "bowl"
+    ]
+  },
+  "Uber_Support": {
+    "brand": "Uber_Support",
+    "customer_tweets": 478,
+    "support_replies": 604,
+    "approx_conversations": 478,
+    "avg_conversation_length": 2.26,
+    "percentage_with_brand_reply": 100.0,
+    "common_customer_patterns": [
+      "uber",
+      "not",
+      "driver",
+      "your",
+      "can",
+      "help",
+      "that",
+      "please"
+    ]
+  },
+  "British_Airways": {
+    "brand": "British_Airways",
+    "customer_tweets": 517,
+    "support_replies": 451,
+    "approx_conversations": 517,
+    "avg_conversation_length": 1.87,
+    "percentage_with_brand_reply": 87.2,
+    "common_customer_patterns": [
+      "not",
+      "can",
+      "flight",
+      "but",
+      "that",
+      "was",
+      "from",
+      "your"
+    ]
+  },
+  "sainsburys": {
+    "brand": "sainsburys",
+    "customer_tweets": 511,
+    "support_replies": 376,
+    "approx_conversations": 511,
+    "avg_conversation_length": 1.74,
+    "percentage_with_brand_reply": 73.6,
+    "common_customer_patterns": [
+      "your",
+      "are",
+      "store",
+      "just",
+      "was",
+      "but",
+      "pies",
+      "from"
+    ]
+  }
+}

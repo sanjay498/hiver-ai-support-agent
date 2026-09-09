@@ -1,0 +1,196 @@
+{
+  "delivery_status": {
+    "intent": "delivery_status",
+    "description": "Inquiries regarding tracking, delayed shipments, estimated delivery dates, or packages marked delivered but not received.",
+    "positive_examples": [
+      "3 different people have given 3 different answers and I still don't have my order. Says delivered Saturday, was not, I was home all day",
+      "How about you guys figure out my Xbox One X project Scorpio edition first. No expected delivery or shipping date and itâs only a week away",
+      "Yeah this is crazy weâre less than a week away and still no Shipping Information on something that we Pre-ordered back in August",
+      "my package was âaccidentallyâ opened.. 4 items missing worth Â£97. You need better delivery drivers!! https://t.co/f6SaVBSMqM",
+      "why is my order at my local courier for the last 6 days and still hasnât been delivered to me?? Over 1 week late ð¡"
+    ],
+    "confusing_intents": [
+      "damaged_defective_item",
+      "order_modification",
+      "cancellation_request"
+    ],
+    "escalation_guidance": "Can be AUTO-HANDLED if tracking status can be checked and carrier timeframe is active. ESCALATE if package is confirmed missing beyond carrier threshold or high-value item requires carrier trace."
+  },
+  "refund_status": {
+    "intent": "refund_status",
+    "description": "Questions regarding the status, timeline, or receipt of a refund for a returned or cancelled order.",
+    "positive_examples": [
+      "delivery I paid for today,didnât arrive.why not?i paid enough for it.where is it??Iâm unhappy.refund the delivery charge",
+      "I called customer service and was told my membership wouldn't be renewed. I was just charged today. How do I get a refund? https://t.co/SeoQUsA0VA",
+      "please spend time &amp; money to fix your app. Constant issues with it.",
+      "yes i did,but amazonuk is not doing the refund process.if they do it .i will get the money",
+      "i mailed amazonuk so many time. but i havent got any progress.customer care just saying thats in the billing section.no i havent got refund"
+    ],
+    "confusing_intents": [
+      "billing_overcharge",
+      "return_exchange"
+    ],
+    "escalation_guidance": "AUTO-HANDLE with general bank processing timelines (3-5 business days). ESCALATE if refund timeframe has elapsed without credit appearing in customer account."
+  },
+  "return_exchange": {
+    "intent": "return_exchange",
+    "description": "Requests to initiate a return, replace a wrong item, print return shipping labels, or drop-off location questions.",
+    "positive_examples": [
+      "Already started the return. UPS gets it from my doorstep tomorrow. Order 111-5014070-4118645",
+      "I would like it replaced not refunded. But the sale is over, and doesnât look like you have it in stock at the site. What are my other options?",
+      "UPS supposed to pick up a return package yesterday and bring return label... never showed.",
+      "I've returned several things lately and don't want Amazon to think I'm abusing the return policy.",
+      ", #fake I phone 7 received from amazon , India - order ID: amazon India has refused to replace @115850 pictures attach herewith. https://t.co/iYmtFWzE6o"
+    ],
+    "confusing_intents": [
+      "damaged_defective_item",
+      "refund_status"
+    ],
+    "escalation_guidance": "AUTO-HANDLE with standard Online Return Center portal instructions. ESCALATE if item is non-returnable by standard policy or requires exception approval."
+  },
+  "cancellation_request": {
+    "intent": "cancellation_request",
+    "description": "Requests to cancel an order or item immediately after placement or before dispatch.",
+    "positive_examples": [
+      "but I canât find the options to cancel or re-order?",
+      "I have tried. Itâs not allowing me to access my account to cancel my membership, I havenât even used prime in almost 3 months.",
+      "being charged for amazon prime &amp; when I go to cancel it, itâs saying Iâm not a memberð ð ð",
+      "Two fake items in one day. Time to cancel my Amazon Prime membership. @AmazonHelp",
+      "CancelaciÃ³n de membresÃ­a Amazon Prime y reembolso ya!"
+    ],
+    "confusing_intents": [
+      "order_modification",
+      "return_exchange"
+    ],
+    "escalation_guidance": "AUTO-HANDLE if order has not yet entered dispatch. ESCALATE if order is already in shipping pipeline or requires manual dispatch recall."
+  },
+  "damaged_defective_item": {
+    "intent": "damaged_defective_item",
+    "description": "Reports of products arriving broken, crushed, leaking, spoiled, missing components, or malfunctioning out of the box.",
+    "positive_examples": [
+      "Is it possible to prevent AMZL from delivering my packages moving forward? Stuff is either lost/stolen/broken EVERY time.",
+      ", itâd be nice if the book I waited 4 months for wasnât damaged inside of an undented box. #twinpeaks #twinâ¦ https://t.co/Lac4K7iQzJ https://t.co/JroqJKrH9Q",
+      "#Amazon who packages these games. Ordered to games and both came rattling inside their cases. One is broken. Games may have suffered scratches. @115821 https://t.co/KqpOkpLeP8",
+      "I seem to have bad luck in trying to get undamaged books from @115821. Sometimes it's damaged in delivery, but this one was packed this way. https://t.co/HnwtSE7e31",
+      "My drying rack was broken when I opened the box. What should I do @115821? https://t.co/II4YnrWx0E"
+    ],
+    "confusing_intents": [
+      "delivery_status",
+      "return_exchange"
+    ],
+    "escalation_guidance": "AUTO-HANDLE replacement guidance if eligible for instant swap. ESCALATE if damage caused property hazard, involves hazardous materials, or high-value damage claim."
+  },
+  "billing_overcharge": {
+    "intent": "billing_overcharge",
+    "description": "Disputes regarding unexpected charges, double-billing, price discrepancies, unauthorized subscriptions, or Prime fee surprises.",
+    "positive_examples": [
+      "delivery I paid for today,didnât arrive.why not?i paid enough for it.where is it??Iâm unhappy.refund the delivery charge",
+      "I called customer service and was told my membership wouldn't be renewed. I was just charged today. How do I get a refund? https://t.co/SeoQUsA0VA",
+      "Thats the thing I told customer service. I created a new email address for the Prime trial and forgot it. What can I do so I'm not charged?",
+      "You have to log in. I don't remember the email address I used. Can you look up the account by my bank information?",
+      "being charged for amazon prime &amp; when I go to cancel it, itâs saying Iâm not a memberð ð ð"
+    ],
+    "confusing_intents": [
+      "refund_status",
+      "prime_membership",
+      "account_access_security"
+    ],
+    "escalation_guidance": "ESCALATE immediately to human agents. Financial discrepancies and payment disputes require account verification and authorization."
+  },
+  "order_modification": {
+    "intent": "order_modification",
+    "description": "Requests to change delivery address, payment method, recipient name, or delivery time slot on an existing order.",
+    "positive_examples": [
+      "They sent the feckin' order to Germany! Some dozy driver is looking for an address in the wrong country! I'm so done with Amazon!",
+      "Thats the thing I told customer service. I created a new email address for the Prime trial and forgot it. What can I do so I'm not charged?",
+      "You have to log in. I don't remember the email address I used. Can you look up the account by my bank information?",
+      "Want to speak to someone at corp to address these issues.",
+      "Apparently if you preorder something then move and update your address the preorder doesn't update automagically. #lessonlearned?"
+    ],
+    "confusing_intents": [
+      "cancellation_request",
+      "delivery_status"
+    ],
+    "escalation_guidance": "AUTO-HANDLE guidance for 'Your Orders' address edit if dispatch hasn't locked. ESCALATE if package is already in transit with external carrier."
+  },
+  "account_access_security": {
+    "intent": "account_access_security",
+    "description": "Issues with account login, two-factor authentication (2FA/OTP), locked credentials, password resets, or suspected compromised account.",
+    "positive_examples": [
+      "I want my amazon payments account CLOSED. dm me please.",
+      "Bought an @115821 Echo Show and it wonât recognize a single @AmazonHelp account in our household. WTF, guys?",
+      "You have to log in. I don't remember the email address I used. Can you look up the account by my bank information?",
+      "I have tried. Itâs not allowing me to access my account to cancel my membership, I havenât even used prime in almost 3 months.",
+      "if I add another adult to my Amazon household (with their own account) can they see my wishlists/photos/order history?"
+    ],
+    "confusing_intents": [
+      "billing_overcharge",
+      "app_technical_issue"
+    ],
+    "escalation_guidance": "STRICTLY ESCALATE. Automated bots must never handle account credentials, security lockouts, or identity verification."
+  },
+  "prime_membership": {
+    "intent": "prime_membership",
+    "description": "Inquiries regarding Amazon Prime perks, Prime Video playback or content availability, renewal dates, or membership cancellation.",
+    "positive_examples": [
+      "also, beim Addams Family-Film in Prime sind Bild und Ton nicht wirklich synchron. Wie kommt's?",
+      "since when you stop giving 20% off videogame pre-orders (amazon prime members) im confused? why?",
+      "I called customer service and was told my membership wouldn't be renewed. I was just charged today. How do I get a refund? https://t.co/SeoQUsA0VA",
+      "Thats the thing I told customer service. I created a new email address for the Prime trial and forgot it. What can I do so I'm not charged?",
+      "I have tried. Itâs not allowing me to access my account to cancel my membership, I havenât even used prime in almost 3 months."
+    ],
+    "confusing_intents": [
+      "billing_overcharge",
+      "app_technical_issue"
+    ],
+    "escalation_guidance": "AUTO-HANDLE for general benefit policies, device compatibility, and cancellation steps. ESCALATE if customer requests prorated Prime refund."
+  },
+  "product_availability": {
+    "intent": "product_availability",
+    "description": "Questions regarding stock availability, pre-orders, estimated restock dates, or regional delivery eligibility for a specific item.",
+    "positive_examples": [
+      "I would like it replaced not refunded. But the sale is over, and doesnât look like you have it in stock at the site. What are my other options?",
+      "After getting a confirmation that it will be delivered post 7 pm, i have got an email at 1:30 in the afternoon that i was not available !",
+      "Hi. This is where I'm stuck. When will you initiate the pick up? https://t.co/bVTocnrC1k",
+      "is services available on @115850 ehco dot??",
+      "When will i be getting a refund of this product #help #pleasebesensable https://t.co/gGgeU6tmhP"
+    ],
+    "confusing_intents": [
+      "delivery_status",
+      "order_modification"
+    ],
+    "escalation_guidance": "AUTO-HANDLE with catalog availability guidelines and notifications subscription."
+  },
+  "general_feedback_complaint": {
+    "intent": "general_feedback_complaint",
+    "description": "Expressions of customer dissatisfaction regarding driver conduct, packaging quality, policy changes, or poor service experience without specific action request.",
+    "positive_examples": [
+      "my package was âaccidentallyâ opened.. 4 items missing worth Â£97. You need better delivery drivers!! https://t.co/f6SaVBSMqM",
+      "They sent the feckin' order to Germany! Some dozy driver is looking for an address in the wrong country! I'm so done with Amazon!",
+      "I ordered some parts of my costume late, but my amazon has a map of the driver and they're like, 6 houses away.",
+      "Saying I preordered to early, terrible customer service. Wonât renew prime if this isnât fixed.",
+      "I have stopped ordering from your site, Amazon courier guys are very rude. I have given similar complaints to u no of tyms."
+    ],
+    "confusing_intents": [
+      "damaged_defective_item",
+      "delivery_status"
+    ],
+    "escalation_guidance": "AUTO-HANDLE with polite acknowledgment and feedback routing. ESCALATE if customer threatens legal action, regulatory escalation, or public boycott."
+  },
+  "app_technical_issue": {
+    "intent": "app_technical_issue",
+    "description": "Technical errors encountering the Amazon website, mobile app, checkout button unresponsive, shopping cart errors, or payment gateway timeout.",
+    "positive_examples": [
+      ".@AmazonHelp Item has not been delivered but tracking says it was handed to me over an hour ago... 2nd time this has happened. Sort it out https://t.co/42W82GcARk",
+      "delivery I paid for today,didnât arrive.why not?i paid enough for it.where is it??Iâm unhappy.refund the delivery charge",
+      "please spend time &amp; money to fix your app. Constant issues with it.",
+      "Many times, but still failing, and it happen with some show",
+      "website impossible to navigate - all I want to do is email about a faulty item - 20 min going round in circles. Infuriating ð¡ð¡ð¡"
+    ],
+    "confusing_intents": [
+      "account_access_security",
+      "billing_overcharge"
+    ],
+    "escalation_guidance": "AUTO-HANDLE standard troubleshooting steps (cache clearing, browser update, app reinstallation). ESCALATE if outage affects payment completion."
+  }
+}

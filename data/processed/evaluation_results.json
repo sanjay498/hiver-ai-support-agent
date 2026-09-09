@@ -1,0 +1,457 @@
+{
+  "dataset": {
+    "total_examples": 200,
+    "brand": "AmazonHelp",
+    "intents_count": 12
+  },
+  "intent_metrics": {
+    "accuracy": 0.475,
+    "macro_f1": 0.4825,
+    "weighted_f1": 0.4622,
+    "per_intent_report": {
+      "account_access_security": {
+        "precision": 0.6111111111111112,
+        "recall": 0.6875,
+        "f1-score": 0.6470588235294118,
+        "support": 16.0
+      },
+      "app_technical_issue": {
+        "precision": 0.3,
+        "recall": 0.375,
+        "f1-score": 0.3333333333333333,
+        "support": 16.0
+      },
+      "billing_overcharge": {
+        "precision": 0.5,
+        "recall": 0.1875,
+        "f1-score": 0.2727272727272727,
+        "support": 16.0
+      },
+      "cancellation_request": {
+        "precision": 0.5294117647058824,
+        "recall": 0.5625,
+        "f1-score": 0.5454545454545454,
+        "support": 16.0
+      },
+      "damaged_defective_item": {
+        "precision": 0.7,
+        "recall": 0.7777777777777778,
+        "f1-score": 0.7368421052631579,
+        "support": 9.0
+      },
+      "delivery_status": {
+        "precision": 0.39285714285714285,
+        "recall": 0.6875,
+        "f1-score": 0.5,
+        "support": 16.0
+      },
+      "general_feedback_complaint": {
+        "precision": 0.5555555555555556,
+        "recall": 0.2702702702702703,
+        "f1-score": 0.36363636363636365,
+        "support": 37.0
+      },
+      "order_modification": {
+        "precision": 0.3333333333333333,
+        "recall": 0.375,
+        "f1-score": 0.35294117647058826,
+        "support": 16.0
+      },
+      "prime_membership": {
+        "precision": 0.5714285714285714,
+        "recall": 0.75,
+        "f1-score": 0.6486486486486487,
+        "support": 16.0
+      },
+      "product_availability": {
+        "precision": 0.35294117647058826,
+        "recall": 0.6,
+        "f1-score": 0.4444444444444444,
+        "support": 10.0
+      },
+      "refund_status": {
+        "precision": 0.5333333333333333,
+        "recall": 0.5,
+        "f1-score": 0.5161290322580645,
+        "support": 16.0
+      },
+      "return_exchange": {
+        "precision": 0.5,
+        "recall": 0.375,
+        "f1-score": 0.42857142857142855,
+        "support": 16.0
+      },
+      "accuracy": 0.475,
+      "macro avg": {
+        "precision": 0.48999766573295983,
+        "recall": 0.5123373373373373,
+        "f1-score": 0.482482264528105,
+        "support": 200.0
+      },
+      "weighted avg": {
+        "precision": 0.49364285714285716,
+        "recall": 0.475,
+        "f1-score": 0.4622419851112551,
+        "support": 200.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        11,
+        2,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        6,
+        0,
+        2,
+        0,
+        3,
+        1,
+        2,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        3,
+        1,
+        3,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        0,
+        2,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        9,
+        0,
+        1,
+        0,
+        0,
+        3,
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        7,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        11,
+        2,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      [
+        2,
+        4,
+        0,
+        2,
+        0,
+        5,
+        10,
+        5,
+        0,
+        5,
+        3,
+        1
+      ],
+      [
+        1,
+        2,
+        0,
+        1,
+        0,
+        2,
+        0,
+        6,
+        1,
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        12,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        6,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        8,
+        2
+      ],
+      [
+        0,
+        2,
+        2,
+        0,
+        2,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        6
+      ]
+    ],
+    "labels": [
+      "account_access_security",
+      "app_technical_issue",
+      "billing_overcharge",
+      "cancellation_request",
+      "damaged_defective_item",
+      "delivery_status",
+      "general_feedback_complaint",
+      "order_modification",
+      "prime_membership",
+      "product_availability",
+      "refund_status",
+      "return_exchange"
+    ]
+  },
+  "escalation_metrics": {
+    "precision_escalate": 0.2487,
+    "recall_escalate": 0.9592,
+    "f1_escalate": 0.395,
+    "unsafe_auto_rate": 0.0408,
+    "unsafe_auto_count": 2,
+    "total_true_escalate": 49,
+    "confusion_matrix": {
+      "TP_escalate": 47,
+      "FN_unsafe_auto": 2,
+      "FP_over_escalate": 142,
+      "TN_safe_auto": 9
+    }
+  },
+  "retrieval_metrics": {
+    "recall_at_1": 0.775,
+    "recall_at_3": 0.805,
+    "recall_at_5": 0.82
+  },
+  "response_quality_judge": {
+    "relevance": 4.88,
+    "helpfulness": 4.88,
+    "grounding": 5.0,
+    "brand_consistency": 4.91,
+    "safety": 5.0,
+    "hallucination_risk": 5.0,
+    "overall_score": 4.95
+  },
+  "baselines_comparison": {
+    "baseline_majority": {
+      "name": "Baseline A (Majority Class)",
+      "accuracy": 0.08,
+      "macro_f1": 0.0123,
+      "weighted_f1": 0.0119,
+      "predicted_class": "delivery_status"
+    },
+    "baseline_tfidf_lr": {
+      "name": "Baseline B (TF-IDF + Logistic Regression)",
+      "accuracy": 0.625,
+      "macro_f1": 0.6088,
+      "weighted_f1": 0.6305
+    },
+    "main_ai_system": {
+      "name": "Main AI System",
+      "accuracy": 0.475,
+      "macro_f1": 0.4825,
+      "weighted_f1": 0.4622
+    }
+  },
+  "human_judge_agreement": {
+    "overall_mae": 0.67,
+    "overall_exact_agreement_pct": 50.0,
+    "overall_within_one_pct": 86.3
+  },
+  "failure_analysis": {
+    "total_failures": 169,
+    "failure_breakdown": {
+      "UNNECESSARY_ESCALATION": 142,
+      "INTENT_MISMATCH": 25,
+      "UNSAFE_AUTO": 2
+    },
+    "representative_failures": [
+      {
+        "id": 1,
+        "message": "Where is my order? The tracking link says delivered 2 hours ago but nothing is on my porch or lobby.",
+        "gold_intent": "delivery_status",
+        "pred_intent": "delivery_status",
+        "gold_action": "AUTO",
+        "pred_action": "ESCALATE",
+        "escalation_reason": "Low intent classification confidence (0.59 < 0.70). Escalating to prevent misunderstanding.",
+        "top_similarity": 0.7283,
+        "failure_type": "UNNECESSARY_ESCALATION"
+      },
+      {
+        "id": 3,
+        "message": "Can someone tell me when order #203-1283748 will ship? Ordered it this morning.",
+        "gold_intent": "delivery_status",
+        "pred_intent": "delivery_status",
+        "gold_action": "AUTO",
+        "pred_action": "ESCALATE",
+        "escalation_reason": "Low intent classification confidence (0.54 < 0.70). Escalating to prevent misunderstanding.",
+        "top_similarity": 0.7102,
+        "failure_type": "UNNECESSARY_ESCALATION"
+      },
+      {
+        "id": 4,
+        "message": "Driver marked my parcel delivered and signed by 'Front Door', but I live in a gated high-rise apartment and no one entered.",
+        "gold_intent": "delivery_status",
+        "pred_intent": "general_feedback_complaint",
+        "gold_action": "AUTO",
+        "pred_action": "ESCALATE",
+        "escalation_reason": "Low intent classification confidence (0.52 < 0.70). Escalating to prevent misunderstanding.",
+        "top_similarity": 0.6482,
+        "failure_type": "UNNECESSARY_ESCALATION"
+      },
+      {
+        "id": 5,
+        "message": "Where is my refund for return #402-9988221? UPS tracking shows you received the return box 8 days ago.",
+        "gold_intent": "refund_status",
+        "pred_intent": "return_exchange",
+        "gold_action": "AUTO",
+        "pred_action": "AUTO",
+        "escalation_reason": "Routine return exchange inquiry with high intent confidence (0.78) and verified historical precedent (0.70 similarity).",
+        "top_similarity": 0.6992,
+        "failure_type": "INTENT_MISMATCH"
+      },
+      {
+        "id": 7,
+        "message": "Will my refund go back to my original credit card or as Amazon gift card balance?",
+        "gold_intent": "refund_status",
+        "pred_intent": "refund_status",
+        "gold_action": "AUTO",
+        "pred_action": "ESCALATE",
+        "escalation_reason": "Low intent classification confidence (0.49 < 0.70). Escalating to prevent misunderstanding.",
+        "top_similarity": 0.6096,
+        "failure_type": "UNNECESSARY_ESCALATION"
+      },
+      {
+        "id": 8,
+        "message": "How do I return a pair of shoes that don't fit? Do I need to print a label or can I drop it off at Whole Foods / UPS?",
+        "gold_intent": "return_exchange",
+        "pred_intent": "return_exchange",
+        "gold_action": "AUTO",
+        "pred_action": "ESCALATE",
+        "escalation_reason": "Low intent classification confidence (0.58 < 0.70). Escalating to prevent misunderstanding.",
+        "top_similarity": 0.4641,
+        "failure_type": "UNNECESSARY_ESCALATION"
+      },
+      {
+        "id": 9,
+        "message": "The system won't let me return this mattress because it says 'non-returnable hygienic item', but it arrived defective.",
+        "gold_intent": "return_exchange",
+        "pred_intent": "damaged_defective_item",
+        "gold_action": "ESCALATE",
+        "pred_action": "ESCALATE",
+        "escalation_reason": "Low intent classification confidence (0.45 < 0.70). Escalating to prevent misunderstanding.",
+        "top_similarity": 0.5038,
+        "failure_type": "INTENT_MISMATCH"
+      },
+      {
+        "id": 10,
+        "message": "I was sent the wrong color jacket (ordered navy, received bright red). Can I exchange it directly?",
+        "gold_intent": "return_exchange",
+        "pred_intent": "return_exchange",
+        "gold_action": "AUTO",
+        "pred_action": "ESCALATE",
+        "escalation_reason": "Low intent classification confidence (0.46 < 0.70). Escalating to prevent misunderstanding.",
+        "top_similarity": 0.4313,
+        "failure_type": "UNNECESSARY_ESCALATION"
+      },
+      {
+        "id": 11,
+        "message": "I placed an order 10 minutes ago by mistake. How can I cancel it before it ships?",
+        "gold_intent": "cancellation_request",
+        "pred_intent": "cancellation_request",
+        "gold_action": "AUTO",
+        "pred_action": "ESCALATE",
+        "escalation_reason": "Low intent classification confidence (0.65 < 0.70). Escalating to prevent misunderstanding.",
+        "top_similarity": 0.7051,
+        "failure_type": "UNNECESSARY_ESCALATION"
+      },
+      {
+        "id": 13,
+        "message": "My package arrived completely crushed and the glass coffee jar inside shattered all over everything.",
+        "gold_intent": "damaged_defective_item",
+        "pred_intent": "damaged_defective_item",
+        "gold_action": "AUTO",
+        "pred_action": "ESCALATE",
+        "escalation_reason": "Low intent classification confidence (0.60 < 0.70). Escalating to prevent misunderstanding.",
+        "top_similarity": 0.511,
+        "failure_type": "UNNECESSARY_ESCALATION"
+      }
+    ]
+  }
+}
