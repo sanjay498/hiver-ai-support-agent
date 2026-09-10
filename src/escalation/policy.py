@@ -4,8 +4,8 @@ Implements conservative, safety-critical decision logic to route inquiries
 between AUTO_HANDLE and ESCALATE based on:
 1. Critical Safety & Risk Keywords (Legal, Fraud, Abuse, Security, Safety Hazards).
 2. Category-Specific Policy Matrix (e.g. Account Security and Billing Disputes require human ledger access).
-3. Classifier Confidence Gates (< 0.70 triggers escalation).
-4. Retrieval Evidence & Precedent Thresholds (< 0.58 similarity triggers escalation due to lack of historical precedent).
+3. Classifier Confidence Gates (configurable threshold, default 0.65-0.70).
+4. Retrieval Evidence & Precedent Thresholds (configurable similarity threshold, default 0.55-0.58).
 5. Grounding Confidence Gates.
 """
 
@@ -33,7 +33,7 @@ RISK_PATTERNS = {
         r"\blegal action\b", r"\bcourt\b", r"\bftc\b", r"\bconsumer court\b", r"\bbetter business bureau\b", r"\bbbb\b"
     ],
     "FRAUD_SECURITY_COMPROMISE": [
-        r"\bhacked\b", r"\bunauthorized\b", r"\bfraud\b", r"\bscam\b", r"\bstolen card\b",
+        r"\bhacked\b", r"\bunauthorized\b", r"\bfraud\b", r"\bscam\b", r"\bscammed\b", r"\bstolen card\b",
         r"\bstolen account\b", r"\bidentity theft\b", r"\bcompromised\b", r"\bunauthorized charge\b"
     ],
     "SAFETY_HAZARD": [
@@ -52,10 +52,10 @@ MANDATORY_ESCALATION_INTENTS = {
     "billing_overcharge": "Payment disputes and ledger adjustments require authorized financial specialist review."
 }
 
-# Thresholds
-CONFIDENCE_THRESHOLD = 0.70
-RETRIEVAL_SIMILARITY_THRESHOLD = 0.58
-GROUNDING_THRESHOLD = 0.65
+# Defaults
+CONFIDENCE_THRESHOLD = 0.65
+RETRIEVAL_SIMILARITY_THRESHOLD = 0.55
+GROUNDING_THRESHOLD = 0.60
 
 
 class EscalationEngine:
@@ -90,8 +90,13 @@ class EscalationEngine:
         intent_confidence: float,
         retrieved_evidence: List[RetrievedEvidence],
         grounding_confidence: float = 0.85,
-        context: Optional[str] = None
+        context: Optional[str] = None,
+        confidence_threshold: Optional[float] = None,
+        retrieval_threshold: Optional[float] = None,
     ) -> EscalationDecision:
+        conf_thresh = confidence_threshold if confidence_threshold is not None else self.confidence_threshold
+        ret_thresh = retrieval_threshold if retrieval_threshold is not None else self.retrieval_threshold
+        
         combined_text = f"{context} {customer_message}".strip() if context else customer_message
         risk_flags = self._scan_risk_keywords(combined_text)
         
@@ -116,12 +121,12 @@ class EscalationEngine:
             )
 
         # 3. Classifier Confidence Gate
-        if intent_confidence < self.confidence_threshold:
+        if intent_confidence < conf_thresh:
             return EscalationDecision(
                 decision="ESCALATE",
                 reason=(
                     f"Low intent classification confidence ({intent_confidence:.2f} < "
-                    f"{self.confidence_threshold:.2f}). Escalating to prevent misunderstanding."
+                    f"{conf_thresh:.2f}). Escalating to prevent misunderstanding."
                 ),
                 confidence=0.88,
                 risk_flags=["LOW_INTENT_CONFIDENCE"]
@@ -137,12 +142,12 @@ class EscalationEngine:
             )
             
         top_sim = retrieved_evidence[0].similarity_score
-        if top_sim < self.retrieval_threshold:
+        if top_sim < ret_thresh:
             return EscalationDecision(
                 decision="ESCALATE",
                 reason=(
                     f"Insufficient historical precedent similarity ({top_sim:.2f} < "
-                    f"{self.retrieval_threshold:.2f}). Risk of hallucinated or irrelevant guidance."
+                    f"{ret_thresh:.2f}). Risk of hallucinated or irrelevant guidance."
                 ),
                 confidence=0.85,
                 risk_flags=["LOW_RETRIEVAL_SIMILARITY"]
@@ -165,7 +170,7 @@ class EscalationEngine:
             decision="AUTO_HANDLE",
             reason=(
                 f"Routine {predicted_intent.replace('_', ' ')} inquiry with high intent confidence "
-                f"({intent_confidence:.2f}) and verified historical precedent ({top_sim:.2f} similarity)."
+                f"({intent_confidence:.2f} >= {conf_thresh:.2f}) and verified historical precedent ({top_sim:.2f} >= {ret_thresh:.2f} similarity)."
             ),
             confidence=round(min((intent_confidence + top_sim) / 2.0, 0.96), 2),
             risk_flags=[]

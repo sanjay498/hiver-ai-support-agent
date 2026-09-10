@@ -1,11 +1,10 @@
 """
-Hiver AI Customer Support Agent — Demonstration UI.
-Allows evaluators and customer support managers to:
-1. Enter customer messages and conversation context.
-2. View predicted intent, confidence score, and categorization reason.
-3. Review AUTO-HANDLE vs ESCALATE routing decisions with safety risk flags.
-4. Inspect draft customer support replies grounded in historical brand resolutions.
-5. Explore the 'Show Evidence' drawer for retrieved precedent cases.
+Hiver AI Customer Support Agent — Interactive Demonstration UI.
+Features:
+- Dynamic Confidence & Retrieval Sensitivity Sliders in the sidebar.
+- Pre-loaded edge cases and real-world presets.
+- Real-time intent classification, grounded reply generation, and escalation routing.
+- Expandable evidence drawer showing historical resolution precedents.
 """
 
 import os
@@ -39,32 +38,47 @@ selected_brand = os.getenv("SELECTED_BRAND", "AmazonHelp")
 st.title("🤖 Hiver AI Customer Support Agent")
 st.caption(
     f"Autonomous customer support triage, grounded reply generation, and safe escalation engine. "
-    f"Active Historical Precedent Knowledge Base: **@{selected_brand}** (Empirically selected from Kaggle Customer Support on Twitter)."
+    f"Active Precedent Knowledge Base: **@{selected_brand}**."
 )
 
-# Sidebar Configuration & Quick Test Presets
-st.sidebar.header("⚙️ Configuration & Presets")
-st.sidebar.info(
-    f"**Configured Brand:** `@{selected_brand}`\n\n"
-    "Discovered Taxonomy: **12 Intents**\n\n"
-    "Vector Database: **FAISS IndexFlatIP (1,708 Precedents)**\n\n"
-    "Evaluation Guarantee: **Strict Zero-Leakage**"
+# Sidebar: Controls & Sensitivity Sliders
+st.sidebar.header("⚙️ Safety & Policy Controls")
+
+confidence_threshold = st.sidebar.slider(
+    "🎯 Intent Confidence Threshold",
+    min_value=0.40,
+    max_value=0.90,
+    value=0.65,
+    step=0.05,
+    help="Queries scoring below this confidence are safely escalated to a human agent to avoid misunderstandings."
 )
+
+retrieval_threshold = st.sidebar.slider(
+    "🔍 Precedent Similarity Threshold",
+    min_value=0.40,
+    max_value=0.80,
+    value=0.55,
+    step=0.05,
+    help="Queries without historical precedent above this cosine similarity will be escalated to avoid hallucinated guidance."
+)
+
+st.sidebar.markdown("---")
+st.sidebar.header("🧪 Pre-loaded Scenarios")
 
 PRESETS = {
     "Select a pre-loaded test case...": {
         "message": "",
         "context": ""
     },
-    "1. Routine Tracking Delay (Safe Auto-Handle)": {
+    "1. Routine Tracking Delay": {
         "message": "Where is my package? The tracking link says delivered 2 hours ago but nothing is on my porch.",
         "context": "Ordered 3 days ago with expedited shipping."
     },
-    "2. Urgent Pre-Dispatch Cancellation (Safe Auto-Handle)": {
+    "2. Urgent Pre-Dispatch Cancellation": {
         "message": "I placed order #112-9876543 ten minutes ago by mistake. Can I cancel it before it ships?",
         "context": "Order placed recently."
     },
-    "3. Return / Exchange Procedure (Safe Auto-Handle)": {
+    "3. Return / Exchange Procedure": {
         "message": "How do I return a pair of boots that don't fit? Can I drop them off at a return location without printing a label?",
         "context": ""
     },
@@ -110,7 +124,9 @@ if process_clicked and customer_message.strip():
     with st.spinner("Processing inquiry through Hiver AI pipeline..."):
         resp: SupportAgentResponse = pipeline.process(
             customer_message=customer_message.strip(),
-            context=conversation_context.strip() if conversation_context.strip() else None
+            context=conversation_context.strip() if conversation_context.strip() else None,
+            confidence_threshold=confidence_threshold,
+            retrieval_threshold=retrieval_threshold
         )
 
     st.markdown("---")
@@ -119,7 +135,7 @@ if process_clicked and customer_message.strip():
     m_col1, m_col2, m_col3 = st.columns(3)
     with m_col1:
         st.metric(label="Predicted Intent", value=resp.predicted_intent.replace("_", " ").title())
-        st.caption(f"Intent Confidence: **{resp.intent_confidence * 100:.1f}%**")
+        st.caption(f"Intent Confidence: **{resp.intent_confidence * 100:.1f}%** (Threshold: {confidence_threshold * 100:.0f}%)")
         
     with m_col2:
         if resp.decision == "AUTO_HANDLE":

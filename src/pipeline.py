@@ -59,7 +59,9 @@ class CustomerSupportPipeline:
         customer_message: str,
         context: Optional[str] = None,
         query_conversation_id: Optional[str] = None,
-        top_k_evidence: int = 3
+        top_k_evidence: int = 3,
+        confidence_threshold: Optional[float] = None,
+        retrieval_threshold: Optional[float] = None
     ) -> SupportAgentResponse:
         """
         Executes complete end-to-end processing of an incoming customer inquiry.
@@ -89,7 +91,9 @@ class CustomerSupportPipeline:
             intent_confidence=intent_pred.confidence,
             retrieved_evidence=evidence,
             grounding_confidence=draft.grounding_confidence,
-            context=context
+            context=context,
+            confidence_threshold=confidence_threshold,
+            retrieval_threshold=retrieval_threshold
         )
         
         return SupportAgentResponse(
