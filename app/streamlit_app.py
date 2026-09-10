@@ -1,11 +1,11 @@
 """
-Streamlit Demonstration UI for AI Customer Support Agent.
-Allows evaluators to enter customer messages and conversation context,
-and view:
-- Predicted Intent & Confidence
-- AUTO-HANDLE vs ESCALATE routing decision & reason
-- Grounded Draft Reply
-- Retrieved Historical Precedents (Evidence drawer)
+Hiver AI Customer Support Agent — Demonstration UI.
+Allows evaluators and customer support managers to:
+1. Enter customer messages and conversation context.
+2. View predicted intent, confidence score, and categorization reason.
+3. Review AUTO-HANDLE vs ESCALATE routing decisions with safety risk flags.
+4. Inspect draft customer support replies grounded in historical brand resolutions.
+5. Explore the 'Show Evidence' drawer for retrieved precedent cases.
 """
 
 import os
@@ -21,51 +21,63 @@ import streamlit as st
 from src.pipeline import CustomerSupportPipeline, SupportAgentResponse
 
 st.set_page_config(
-    page_title="AI Customer Support Agent | AmazonHelp",
-    page_icon="📦",
+    page_title="Hiver AI Customer Support Agent",
+    page_icon="🤖",
     layout="wide"
 )
 
 
-@st.cache_resource(show_spinner="Loading models & FAISS index...")
+@st.cache_resource(show_spinner="Initializing Hiver AI support pipeline & FAISS index...")
 def get_pipeline():
     return CustomerSupportPipeline()
 
 
 pipeline = get_pipeline()
+selected_brand = os.getenv("SELECTED_BRAND", "AmazonHelp")
 
-st.title("📦 Amazon AI Customer Support Agent")
-st.caption("Demonstration prototype grounded in historical Amazon Twitter customer support resolutions.")
+# Header
+st.title("🤖 Hiver AI Customer Support Agent")
+st.caption(
+    f"Autonomous customer support triage, grounded reply generation, and safe escalation engine. "
+    f"Active Historical Precedent Knowledge Base: **@{selected_brand}** (Empirically selected from Kaggle Customer Support on Twitter)."
+)
 
-# Sidebar Quick Test Presets
-st.sidebar.header("🧪 Pre-loaded Test Cases")
+# Sidebar Configuration & Quick Test Presets
+st.sidebar.header("⚙️ Configuration & Presets")
+st.sidebar.info(
+    f"**Configured Brand:** `@{selected_brand}`\n\n"
+    "Discovered Taxonomy: **12 Intents**\n\n"
+    "Vector Database: **FAISS IndexFlatIP (1,708 Precedents)**\n\n"
+    "Evaluation Guarantee: **Strict Zero-Leakage**"
+)
+
 PRESETS = {
-    "Select a preset...": {
+    "Select a pre-loaded test case...": {
         "message": "",
         "context": ""
     },
-    "1. Routine Tracking Delay (Safe Auto)": {
+    "1. Routine Tracking Delay (Safe Auto-Handle)": {
         "message": "Where is my package? The tracking link says delivered 2 hours ago but nothing is on my porch.",
-        "context": "Ordered 3 days ago with Prime Two-Day Shipping."
+        "context": "Ordered 3 days ago with expedited shipping."
     },
-    "2. Urgent Cancellation Request": {
+    "2. Urgent Pre-Dispatch Cancellation (Safe Auto-Handle)": {
         "message": "I placed order #112-9876543 ten minutes ago by mistake. Can I cancel it before it ships?",
         "context": "Order placed recently."
     },
-    "3. Return / Exchange Procedure": {
-        "message": "How do I return a pair of boots that don't fit? Can I drop them off at Whole Foods without a box?",
+    "3. Return / Exchange Procedure (Safe Auto-Handle)": {
+        "message": "How do I return a pair of boots that don't fit? Can I drop them off at a return location without printing a label?",
         "context": ""
     },
-    "4. Explicit Legal Threat (Must Escalate)": {
-        "message": "Your driver threw my package over the fence and killed my dog! I am contacting my attorney and suing Amazon tomorrow morning!",
+    "4. Explicit Legal Threat (Immediate Escalation)": {
+        "message": "Your delivery driver threw my package over the fence and damaged my laptop! I am contacting my attorney and suing your company tomorrow morning!",
         "context": "Customer angry, threatening lawsuit."
     },
-    "5. Compromised Account Alert (Must Escalate)": {
-        "message": "I received an alert that someone in Russia logged into my account and changed my password. I can't log in!",
+    "5. Compromised Account Alert (Strict Escalation)": {
+        "message": "I received an alert that someone in another country logged into my account and changed my password. I am locked out!",
         "context": "Suspicious login attempt."
     },
-    "6. Fraudulent Card Overcharge (Must Escalate)": {
-        "message": "Someone just charged $650 in gift cards to my Amazon stored card. FRAUD! Help me immediately!",
+    "6. Fraudulent Unauthorized Overcharge (Strict Escalation)": {
+        "message": "Someone just charged $650 in digital gift cards to my stored card without my permission. FRAUD! Help me immediately!",
         "context": "Active unauthorized transactions."
     }
 }
@@ -81,7 +93,7 @@ with col1:
         "Customer Inquiry / Tweet:",
         value=preset_data["message"],
         height=120,
-        placeholder="Type customer message here..."
+        placeholder="Enter incoming customer message..."
     )
 
 with col2:
@@ -89,13 +101,13 @@ with col2:
         "Optional Conversation Context:",
         value=preset_data["context"],
         height=120,
-        placeholder="Preceding thread messages or background info..."
+        placeholder="Preceding conversation thread or background context..."
     )
 
-process_clicked = st.button("🚀 Analyze & Generate Support Reply", type="primary", use_container_width=True)
+process_clicked = st.button("🚀 Analyze & Generate Support Resolution", type="primary", use_container_width=True)
 
 if process_clicked and customer_message.strip():
-    with st.spinner("Processing inquiry through pipeline..."):
+    with st.spinner("Processing inquiry through Hiver AI pipeline..."):
         resp: SupportAgentResponse = pipeline.process(
             customer_message=customer_message.strip(),
             context=conversation_context.strip() if conversation_context.strip() else None
@@ -113,7 +125,7 @@ if process_clicked and customer_message.strip():
         if resp.decision == "AUTO_HANDLE":
             st.success("### ✅ AUTO-HANDLE")
         else:
-            st.error("### ⚠️ ESCALATE TO HUMAN")
+            st.error("### ⚠️ ESCALATE TO HUMAN AGENT")
         st.caption(f"Routing Confidence: **{resp.escalation_confidence * 100:.1f}%**")
 
     with m_col3:
@@ -121,17 +133,17 @@ if process_clicked and customer_message.strip():
         if resp.risk_flags:
             st.warning(f"Risk Flags: {', '.join(resp.risk_flags)}")
         else:
-            st.info("Risk Flags: None detected")
+            st.info("Risk Flags: None detected (Routine)")
 
     # Routing Rationale
-    st.markdown("#### 📋 Routing Rationale")
-    st.info(f"**Reason:** {resp.escalation_reason}")
+    st.markdown("#### 📋 Operational Routing Decision")
+    st.info(f"**Escalation Rationale:** {resp.escalation_reason}")
     st.caption(f"**Intent Rationale:** {resp.intent_reason}")
 
     # Draft Reply
-    st.markdown("#### 💬 Draft Customer Support Reply")
+    st.markdown("#### 💬 Grounded Customer Support Draft")
     st.code(resp.draft_reply, language="markdown")
-    st.caption(f"Character Count: {len(resp.draft_reply)} / 280 (Twitter standard)")
+    st.caption(f"Character Count: {len(resp.draft_reply)} / 280 characters")
 
     # Show Evidence
     with st.expander("🔍 Show Evidence & Historical Precedents", expanded=False):
@@ -139,10 +151,10 @@ if process_clicked and customer_message.strip():
             st.write(f"Retrieved **{len(resp.evidence)}** historical resolutions from knowledge base:")
             for ev in resp.evidence:
                 st.markdown(
-                    f"**Evidence #{ev.evidence_id}** (Cosine Similarity: `{ev.similarity_score:.3f}` | Conversation: `{ev.conversation_id}`)"
+                    f"**Evidence #{ev.evidence_id}** (Cosine Similarity: `{ev.similarity_score:.3f}` | Thread: `{ev.conversation_id}`)"
                 )
                 st.markdown(f"- **Historical Customer:** *\"{ev.customer_message}\"*")
-                st.markdown(f"- **Historical Resolution:** *\"{ev.brand_reply}\"*")
+                st.markdown(f"- **Historical Support Resolution:** *\"{ev.brand_reply}\"*")
                 st.markdown("---")
         else:
             st.write("No historical evidence retrieved.")

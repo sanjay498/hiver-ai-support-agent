@@ -43,6 +43,7 @@ class AIIntentClassifier:
         self.taxonomy_path = taxonomy_path
         self.taxonomy = self._load_taxonomy()
         self.valid_intents = list(self.taxonomy.keys())
+        self.brand_name = os.getenv("SELECTED_BRAND", "AmazonHelp")
         
         self.api_key = api_key or os.getenv("OPENAI_API_KEY", "")
         self.base_url = base_url or os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1")
@@ -87,7 +88,7 @@ class AIIntentClassifier:
 
     def _build_prompt(self, message: str, context: Optional[str] = None) -> str:
         prompt = [
-            "You are an expert customer support intent classification engine for Amazon.",
+            f"You are an expert customer support intent classification engine for {self.brand_name}.",
             "Classify the following incoming customer message into EXACTLY ONE intent from the taxonomy below.\n",
             "### Intent Taxonomy & Definitions:"
         ]
